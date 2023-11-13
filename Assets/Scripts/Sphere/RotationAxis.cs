@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 
 public class RotationAxis : MonoBehaviour
@@ -23,30 +24,36 @@ public class RotationAxis : MonoBehaviour
         return _staticPart.forward;
     }
 
-    public void SetRotation(float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutBounce, bool speedBased = true)
+    public void SetRotation(List<Transform> rotatingObjects, float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutBounce, bool speedBased = true)
     {
         if (_setRotationTweener != null)
             _setRotationTweener.Kill();
 
-        _setRotationTweener = DOTween.To(() => CurrentZAngle, (newAngle) => SetRotation(newAngle), zAngle, snapSpeed)
+        _setRotationTweener = DOTween.To(() => CurrentZAngle, (newAngle) => SetRotation(rotatingObjects, newAngle), zAngle, snapSpeed)
             .SetSpeedBased(speedBased)
             .SetEase(snapEase)
             .OnComplete(() => onComplete?.Invoke());
     }
 
-    private void SetRotation(float zAngle)
+    private void SetRotation(List<Transform> rotatingObjects, float zAngle)
     {
         float diff = zAngle - CurrentZAngle;
 
         _rotatingPart.Rotate(Axis, diff, Space.World);
+
+        foreach (Transform rotatigObject in rotatingObjects)
+            rotatigObject.Rotate(Axis, diff, Space.World);
     }
 
-    public void Rotate(float angle)
+    public void Rotate(List<Transform> rotatingObjects, float angle)
     {
         float axisSum = Axis.x + Axis.y + Axis.z;
         float sign = -axisSum.GetSign();
 
         _rotatingPart.Rotate(Axis, angle * sign, Space.World);
+
+        foreach (Transform rotatigObject in rotatingObjects)
+            rotatigObject.Rotate(Axis, angle * sign, Space.World);
     }
 
     private float GetCurrentZAngle()

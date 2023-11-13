@@ -1,3 +1,4 @@
+using com.cyborgAssets.inspectorButtonPro;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class GroupsController : MonoBehaviour
         _autoConstructor.Init(_groups);
 
         foreach (PiecesGroup group in _groups)
-            group.OnCompleteRotation += (oldAngle, newAngle) => PieceCompleteRotationHandler(group, oldAngle, newAngle);
+            group.OnCompleteRotation += (previousAngle, writeToHistory) => PieceCompleteRotationHandler(group, previousAngle, writeToHistory);
     }
 
     private void Start()
@@ -21,9 +22,10 @@ public class GroupsController : MonoBehaviour
         _autoConstructor.MixPieces();
     }
 
-    private void PieceCompleteRotationHandler(PiecesGroup group, float oldAngle, float newAngle)
+    private void PieceCompleteRotationHandler(PiecesGroup group, float previousAngle, bool writeToHistory)
     {
-        _autoConstructor.AddActionToHistory(group, oldAngle, newAngle);
+        if (writeToHistory)
+            _autoConstructor.AddActionToHistory(group, previousAngle);
 
         UpdateGroups();
     }
@@ -48,5 +50,11 @@ public class GroupsController : MonoBehaviour
         }
 
         return containingGroups;
+    }
+
+    [ProButton]
+    public void Assemble()
+    {
+        _autoConstructor.AutoAssemblePieces();
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -11,16 +13,21 @@ public class PiecesGroup : MonoBehaviour
 
     [SerializeField] private Transform _defaultPiecesParent;
 
-    public event Action<float, float> OnCompleteRotation;
+    public event Action<float, bool> OnCompleteRotation;
 
     private Sequence _rotateSequence;
 
     public Vector3 Axis => _axis.Axis;
+    public float CurrentZAngle => _axis.CurrentZAngle;
+
+    private float _prevZAngle;
 
 
     private void Awake()
     {
         UpdatePieces();
+
+        SetPrevZAngle(CurrentZAngle);
     }
 
     public void UpdatePieces()
@@ -40,8 +47,6 @@ public class PiecesGroup : MonoBehaviour
 
     public void StartRotate(Pointer pointer)
     {
-        SetParentForPieces(_axis.ObjectsContainer);
-
         if (_rotateSequence != null)
             _rotateSequence.Kill();
 
@@ -49,7 +54,7 @@ public class PiecesGroup : MonoBehaviour
         {
             float rotationSpeed = pointer.CurrentSpeed.x + pointer.CurrentSpeed.y;
 
-            _axis.Rotate(rotationSpeed);
+            _axis.Rotate(Pieces.Select(piece => piece.transform).ToList(), rotationSpeed);
         }).SetLoops(-1);
     }
 
@@ -66,28 +71,32 @@ public class PiecesGroup : MonoBehaviour
         SetRotation(snappingZAngle, onCompleteRotation, snapSpeed, snapEase);
     }
 
-    public void SetRotation(float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutElastic, bool reparentPieces = false, bool speedBased = true)
+    public void SetRotation(float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutElastic, bool reparentPieces = false, bool speedBased = true, bool writeToHistory = true)
     {
-        if (reparentPieces)
-            SetParentForPieces(_axis.ObjectsContainer);
+        List<Transform> rotatingObjects = Pieces.Select(piece => piece.transform).ToList();
 
-        float oldAngle = _axis.CurrentZAngle;
-
-        _axis.SetRotation(zAngle, () =>
+        _axis.SetRotation(rotatingObjects, zAngle, () =>
         {
-            SetParentForPieces(_defaultPiecesParent);
+            StartCoroutine(WaitForFixedUpdateRoutine(() =>
+            {
+                OnCompleteRotation?.Invoke(_prevZAngle, writeToHistory);
 
-            float newAngle = _axis.CurrentZAngle;
+                SetPrevZAngle(zAngle);
 
-            OnCompleteRotation?.Invoke(oldAngle, newAngle);
-
-            onComplete?.Invoke();
+                onComplete?.Invoke();
+            }));
         }, snapSpeed, snapEase, speedBased);
     }
 
-    private void SetParentForPieces(Transform parent)
+    private void SetPrevZAngle(float angle)
     {
-        foreach (SpherePiece piece in Pieces)
-            piece.transform.SetParent(parent, true);
+        _prevZAngle = angle;
+    }
+
+    private IEnumerator WaitForFixedUpdateRoutine(Action onComplete)
+    {
+        yield return new WaitForFixedUpdate();
+
+        onComplete?.Invoke();
     }
 }

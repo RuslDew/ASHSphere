@@ -4,13 +4,12 @@ using System;
 public class HistoryAction
 {
     public PiecesGroup RotatedGroup { get; private set; }
-    public float OldAngle { get; private set; }
-    public float NewAngle { get; private set; }
+    public float PreviousAngle { get; private set; }
 
-    public HistoryAction(PiecesGroup group, float oldAngle, float newAngle)
+
+    public HistoryAction(PiecesGroup group, float previousAngle)
     {
         RotatedGroup = group;
-        OldAngle = oldAngle;
-        NewAngle = newAngle;
+        PreviousAngle = previousAngle;
     }
 }

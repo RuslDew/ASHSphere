@@ -12,6 +12,10 @@ public class GroupingRay : MonoBehaviour
         {
             piece = hit.collider.gameObject.GetComponent<SpherePiece>();
         }
+        else
+        {
+            Debug.LogError("Target not found");
+        }
 
         return piece;
     }
