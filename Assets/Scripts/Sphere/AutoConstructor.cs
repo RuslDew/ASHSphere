@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using DG.Tweening;
 
 [Serializable]
 public class AutoConstructor
@@ -10,7 +9,7 @@ public class AutoConstructor
     private List<HistoryAction> _actionsHistory = new List<HistoryAction>();
 
     [SerializeField] private float _mixDuration = 0.5f;
-    [SerializeField] private float _assmebleDuration = 0.5f;
+    [SerializeField] private float _assembleDuration = 0.5f;
 
 
     public void Init(List<PiecesGroup> avaibleGroups)
@@ -19,40 +18,52 @@ public class AutoConstructor
         _groups.AddRange(avaibleGroups);
     }
 
-    public void MixPieces()
-    {
-        SetRandomAngleForGroup(0);
-    }
-
-    public void AutoAssemblePieces()
+    public void AutoAssemblePieces(Action onComplete)
     {
         if (_actionsHistory.Count == 0)
+        {
+            onComplete?.Invoke();
             return;
+        }
 
-        RedoHistoryAction(_actionsHistory.Count - 1);
+        RedoHistoryAction(_actionsHistory.Count - 1, () =>
+        {
+            _actionsHistory.Clear();
+            onComplete?.Invoke();
+        });
     }
 
-    private void RedoHistoryAction(int actionIndex)
+    private void RedoHistoryAction(int actionIndex, Action onRedoAllActions)
     {
         if (actionIndex < 0 || actionIndex >= _actionsHistory.Count)
+        {
+            onRedoAllActions?.Invoke();
             return;
+        }
 
         HistoryAction redoAction = _actionsHistory[actionIndex];
         PiecesGroup redoGroup = redoAction.RotatedGroup;
-        float previousAngle = redoAction.PreviousAngle;
+        float angleChange = redoAction.AngleChange;
+        float angle = redoGroup.CurrentZAngle - angleChange;
 
-        Debug.LogError(previousAngle);
-
-        redoGroup.SetRotation(previousAngle, () =>
+        redoGroup.SetRotation(angle, () =>
         {
-            RedoHistoryAction(actionIndex - 1);
-        }, _assmebleDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false, writeToHistory: false);
+            RedoHistoryAction(actionIndex - 1, onRedoAllActions);
+        }, _assembleDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false, writeToHistory: false);
     }
 
-    private void SetRandomAngleForGroup(int groupIndex)
+    public void MixPieces(Action onComplete)
+    {
+        SetRandomAngleForGroup(0, onComplete);
+    }
+
+    private void SetRandomAngleForGroup(int groupIndex, Action onSetAllGroups)
     {
         if (groupIndex < 0 || groupIndex >= _groups.Count)
+        {
+            onSetAllGroups?.Invoke();
             return;
+        }
 
         PiecesGroup group = _groups[groupIndex];
 
@@ -63,12 +74,28 @@ public class AutoConstructor
 
         group.SetRotation(randomAngle, () =>
         {
-            SetRandomAngleForGroup(groupIndex + 1);
+            SetRandomAngleForGroup(groupIndex + 1, onSetAllGroups);
         }, _mixDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false);
     }
 
-    public void AddActionToHistory(PiecesGroup group, float previousAngle)
+    public void AddActionToHistory(PiecesGroup group, float angleChange)
     {
-        _actionsHistory.Add(new HistoryAction(group, previousAngle));
+        if (angleChange == 0)
+            return;
+
+        if (_actionsHistory.Count > 1)
+        {
+            HistoryAction previousAction = _actionsHistory[_actionsHistory.Count - 1];
+            float previousActionAngleChange = previousAction.AngleChange;
+
+            if (previousActionAngleChange == -angleChange)
+            {
+                _actionsHistory.Remove(previousAction);
+
+                return;
+            }
+        }
+
+        _actionsHistory.Add(new HistoryAction(group, angleChange));
     }
 }

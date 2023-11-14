@@ -70,11 +70,11 @@ Material:
     - _Lumin: 0
     - _MaxLight: 1
     - _Metallic: 0
-    - _MinLight: 0.214
+    - _MinLight: 0.3
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: -0.57
-    - _OtlWidth: 1
+    - _Offset: -0.5
+    - _OtlWidth: 0
     - _Parallax: 0.02
     - _Segmented: 1
     - _ShnIntense: 0

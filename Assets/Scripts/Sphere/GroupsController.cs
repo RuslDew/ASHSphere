@@ -14,18 +14,13 @@ public class GroupsController : MonoBehaviour
         _autoConstructor.Init(_groups);
 
         foreach (PiecesGroup group in _groups)
-            group.OnCompleteRotation += (previousAngle, writeToHistory) => PieceCompleteRotationHandler(group, previousAngle, writeToHistory);
+            group.OnCompleteRotation += (angleChange, writeToHistory) => PieceCompleteRotationHandler(group, angleChange, writeToHistory);
     }
 
-    private void Start()
-    {
-        _autoConstructor.MixPieces();
-    }
-
-    private void PieceCompleteRotationHandler(PiecesGroup group, float previousAngle, bool writeToHistory)
+    private void PieceCompleteRotationHandler(PiecesGroup group, float angleChange, bool writeToHistory)
     {
         if (writeToHistory)
-            _autoConstructor.AddActionToHistory(group, previousAngle);
+            _autoConstructor.AddActionToHistory(group, angleChange);
 
         UpdateGroups();
     }
@@ -52,9 +47,13 @@ public class GroupsController : MonoBehaviour
         return containingGroups;
     }
 
-    [ProButton]
     public void Assemble()
     {
-        _autoConstructor.AutoAssemblePieces();
+        _autoConstructor.AutoAssemblePieces(null);
+    }
+
+    public void Mix()
+    {
+        _autoConstructor.MixPieces(null);
     }
 }

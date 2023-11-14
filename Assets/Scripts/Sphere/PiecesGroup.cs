@@ -79,7 +79,8 @@ public class PiecesGroup : MonoBehaviour
         {
             StartCoroutine(WaitForFixedUpdateRoutine(() =>
             {
-                OnCompleteRotation?.Invoke(_prevZAngle, writeToHistory);
+                float angleChange = Mathf.Round(CurrentZAngle - _prevZAngle);
+                OnCompleteRotation?.Invoke(angleChange, writeToHistory);
 
                 SetPrevZAngle(zAngle);
 
