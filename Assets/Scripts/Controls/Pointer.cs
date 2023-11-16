@@ -100,4 +100,11 @@ public class Pointer : MonoBehaviour
     {
         CurrentSpeed = speed;
     }
+
+    public void Enable(bool enable)
+    {
+        this.enabled = enable;
+
+        StopPointerHold();
+    }
 }

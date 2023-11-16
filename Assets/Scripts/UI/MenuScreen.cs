@@ -1,52 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-using DG.Tweening;
+using UnityEngine.UI;
 
-public class MenuScreen : MonoBehaviour
+public class MenuScreen : ScreenBase
 {
-    [SerializeField] private Animation _buttonsAnimation;
-    [SerializeField] private string _buttonsShowAnimationName;
-    [SerializeField] private string _buttonsHideAnimationName;
-
-    [Space]
-
-    [SerializeField] private CinemachineVirtualCamera _menuCamera;
-    [SerializeField] private CinemachineVirtualCamera _gameCamera;
-
-    [Space]
-
-    [SerializeField] private RotationAnimation _sphereRotationAnim;
-
-    [Space]
-
-    [SerializeField] private Transform _background;
-    [SerializeField] private float _backgroundMenuScale;
-    [SerializeField] private float _backgroundGameScale;
-    [SerializeField] private float _backgroundAnimDuration;
-    private Tweener _backgroundScaleTweener;
+    [SerializeField] private VerticalLayoutGroup _layout;
 
 
-    public void Hide()
+    public override void Show()
     {
-        _buttonsAnimation.Play(_buttonsHideAnimationName);
+        _layout.enabled = false;
 
-        _menuCamera.enabled = false;
-        _gameCamera.enabled = true;
-
-        _sphereRotationAnim.Enable(false);
-
-        SetBackgroundScale(_backgroundGameScale);
+        base.Show();
     }
 
-    private void SetBackgroundScale(float scale)
+    public override void Hide()
     {
-        Vector3 localScale = Vector3.one * scale;
+        _layout.enabled = false;
 
-        if (_backgroundScaleTweener != null)
-            _backgroundScaleTweener.Kill();
-
-        _backgroundScaleTweener = _background.DOScale(localScale, _backgroundAnimDuration);
+        base.Hide();
     }
 }

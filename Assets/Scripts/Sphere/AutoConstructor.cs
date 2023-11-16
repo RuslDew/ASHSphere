@@ -86,13 +86,19 @@ public class AutoConstructor
         if (_actionsHistory.Count > 1)
         {
             HistoryAction previousAction = _actionsHistory[_actionsHistory.Count - 1];
-            float previousActionAngleChange = previousAction.AngleChange;
 
-            if (previousActionAngleChange == -angleChange)
+            bool isSameGroupActions = previousAction.RotatedGroup == group;
+
+            if (isSameGroupActions)
             {
-                _actionsHistory.Remove(previousAction);
+                float previousActionAngleChange = previousAction.AngleChange;
 
-                return;
+                if (previousActionAngleChange == -angleChange)
+                {
+                    _actionsHistory.Remove(previousAction);
+
+                    return;
+                }
             }
         }
 

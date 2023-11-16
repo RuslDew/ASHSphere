@@ -1,4 +1,4 @@
-using com.cyborgAssets.inspectorButtonPro;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,8 @@ public class GroupsController : MonoBehaviour
     [SerializeField] private List<PiecesGroup> _groups = new List<PiecesGroup>();
 
     [SerializeField] private AutoConstructor _autoConstructor = new AutoConstructor();
+
+    [SerializeField] private List<Pointer> _sphereControlPointers = new List<Pointer>();
 
 
     private void Awake()
@@ -47,13 +49,26 @@ public class GroupsController : MonoBehaviour
         return containingGroups;
     }
 
-    public void Assemble()
+    public void Assemble(Action onComplete = null)
     {
-        _autoConstructor.AutoAssemblePieces(null);
+        _autoConstructor.AutoAssemblePieces(onComplete);
     }
 
-    public void Mix()
+    public void Mix(Action onComplete)
     {
-        _autoConstructor.MixPieces(null);
+        _autoConstructor.MixPieces(onComplete);
+    }
+
+    public void AllowActions(bool allow)
+    {
+        EnablePointers(allow);
+    }
+
+    private void EnablePointers(bool enable)
+    {
+        foreach (Pointer pointer in _sphereControlPointers)
+        {
+            pointer.Enable(enable);
+        }
     }
 }
