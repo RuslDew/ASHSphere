@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class ScreenBase : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class ScreenBase : MonoBehaviour
     private Sequence _hideSequence;
 
     [SerializeField] private float _disableOnHideDelay = 2f;
+
+    private int _finishedElementAnimationsCount = 0;
+
+    private Action _onCompleteShow;
 
 
     public virtual void Hide()
@@ -27,8 +32,11 @@ public class ScreenBase : MonoBehaviour
         }).SetDelay(_disableOnHideDelay);
     }
 
-    public virtual void Show()
+    public virtual void Show(Action onComplete = null)
     {
+        _finishedElementAnimationsCount = 0;
+        _onCompleteShow = onComplete;
+
         if (_hideSequence != null)
             _hideSequence.Kill();
 
@@ -36,7 +44,19 @@ public class ScreenBase : MonoBehaviour
 
         foreach (MoveFromScreenAnimation element in _elementsAnimation)
         {
-            element.MoveToScreen();
+            element.MoveToScreen(() => IncreaseFinishedElementAnimationsCount());
+        }
+    }
+
+    private void IncreaseFinishedElementAnimationsCount()
+    {
+        _finishedElementAnimationsCount++;
+
+        if (_finishedElementAnimationsCount == _elementsAnimation.Count)
+        {
+            _onCompleteShow?.Invoke();
+            _finishedElementAnimationsCount = 0;
+            _onCompleteShow = null;
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class MoveFromScreenAnimation : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class MoveFromScreenAnimation : MonoBehaviour
         }
     }
 
-    public void MoveToScreen()
+    public void MoveToScreen(Action onComplete = null)
     {
         CheckToKeepPositions();
 
@@ -42,7 +43,7 @@ public class MoveFromScreenAnimation : MonoBehaviour
 
         _rect.anchoredPosition = _hiddenPos;
 
-        _animTweener = _rect.DOAnchorPos(_defaultPos, _animDuration).SetDelay(_startShowAnimDelay).SetEase(_showEase);
+        _animTweener = _rect.DOAnchorPos(_defaultPos, _animDuration).SetDelay(_startShowAnimDelay).SetEase(_showEase).OnComplete(() => onComplete?.Invoke());
     }
 
     public void MoveFromScreen()

@@ -1,16 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class MenuScreen : ScreenBase
 {
     [SerializeField] private VerticalLayoutGroup _layout;
 
 
-    public override void Show()
+    public override void Show(Action onComplete = null)
     {
         _layout.enabled = false;
 
-        base.Show();
+        base.Show(() =>
+        {
+            onComplete?.Invoke();
+            _layout.enabled = true;
+        });
     }
 
     public override void Hide()
