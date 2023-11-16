@@ -92,10 +92,22 @@ public class AutoConstructor
             if (isSameGroupActions)
             {
                 float previousActionAngleChange = previousAction.AngleChange;
+                bool isRedoAction = previousActionAngleChange == -angleChange;
 
-                if (previousActionAngleChange == -angleChange)
+                if (isRedoAction)
                 {
                     _actionsHistory.Remove(previousAction);
+
+                    return;
+                }
+
+                bool isPartiallyRedoAction = previousActionAngleChange.GetSign() != angleChange.GetSign() && Mathf.Abs(angleChange) < Mathf.Abs(previousActionAngleChange);
+
+                if (isPartiallyRedoAction)
+                {
+                    _actionsHistory.Remove(previousAction);
+
+                    _actionsHistory.Add(new HistoryAction(group, previousActionAngleChange + angleChange));
 
                     return;
                 }
