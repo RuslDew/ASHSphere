@@ -101,7 +101,8 @@ public class AutoConstructor
                     return;
                 }
 
-                bool isPartiallyRedoAction = previousActionAngleChange.GetSign() != angleChange.GetSign() && Mathf.Abs(angleChange) < Mathf.Abs(previousActionAngleChange);
+                bool isOppositeChange = previousActionAngleChange.GetSign() != angleChange.GetSign();
+                bool isPartiallyRedoAction = isOppositeChange && Mathf.Abs(angleChange) < Mathf.Abs(previousActionAngleChange);
 
                 if (isPartiallyRedoAction)
                 {
