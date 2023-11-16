@@ -14,9 +14,29 @@ public class MoveFromScreenAnimation : MonoBehaviour
 
     private Tweener _animTweener;
 
+    [SerializeField] private bool _keepX = false;
+    [SerializeField] private bool _keepY = false;
+
+
+    private void CheckToKeepPositions()
+    {
+        if (_keepX)
+        {
+            _defaultPos.x = _rect.anchoredPosition.x;
+            _hiddenPos.x = _rect.anchoredPosition.x;
+        }
+
+        if (_keepY)
+        {
+            _defaultPos.y = _rect.anchoredPosition.y;
+            _hiddenPos.y = _rect.anchoredPosition.y;
+        }
+    }
 
     public void MoveToScreen()
     {
+        CheckToKeepPositions();
+
         if (_animTweener != null)
             _animTweener.Kill();
 
@@ -27,6 +47,8 @@ public class MoveFromScreenAnimation : MonoBehaviour
 
     public void MoveFromScreen()
     {
+        CheckToKeepPositions();
+
         if (_animTweener != null)
             _animTweener.Kill();
 
