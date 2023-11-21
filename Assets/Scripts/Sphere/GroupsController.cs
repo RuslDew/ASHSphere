@@ -71,4 +71,14 @@ public class GroupsController : MonoBehaviour
             pointer.Enable(enable);
         }
     }
+
+    public string GetCurrentActionsHistory()
+    {
+        return _autoConstructor.GetCurrentActionsHistory();
+    }
+
+    public List<HistoryAction> LoadActionsFromString(string history)
+    {
+        return _autoConstructor.LoadActionsFromString(history);
+    }
 }

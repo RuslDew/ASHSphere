@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GroupsController _groupsController;
     [SerializeField] private Timer _timer;
+    [SerializeField] private SaveManager _saveManager;
 
     private Session _currentSession;
 

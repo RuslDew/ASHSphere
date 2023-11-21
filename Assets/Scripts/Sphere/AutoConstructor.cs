@@ -117,4 +117,58 @@ public class AutoConstructor
 
         _actionsHistory.Add(new HistoryAction(group, angleChange));
     }
+
+    public string GetCurrentActionsHistory()
+    {
+        string actionsHistory = "";
+
+        foreach (HistoryAction action in _actionsHistory)
+        {
+            actionsHistory = $"{actionsHistory}{action.RotatedGroup.GroupId}_{action.AngleChange};";
+        }
+
+        return actionsHistory;
+    }
+
+    public List<HistoryAction> LoadActionsFromString(string history)
+    {
+        List<HistoryAction> loadedHistory = new List<HistoryAction>();
+
+        string[] actions = history.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+        if (actions != null)
+        {
+            foreach (string action in actions)
+            {
+                string[] actionParams = action.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (actionParams != null)
+                {
+                    int groupId = int.Parse(actionParams[0]);
+                    float angleChange = float.Parse(actionParams[1]);
+
+                    PiecesGroup group = GetGroupById(groupId);
+
+                    if (group != null)
+                    {
+                        HistoryAction loadedAction = new HistoryAction(group, angleChange);
+                        loadedHistory.Add(loadedAction);
+                    }
+                }
+            }
+        }
+
+        return loadedHistory;
+    }
+
+    private PiecesGroup GetGroupById(int id)
+    {
+        foreach (PiecesGroup group in _groups)
+        {
+            if (group.GroupId == id)
+                return group;
+        }
+
+        return null;
+    }
 }

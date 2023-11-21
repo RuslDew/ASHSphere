@@ -22,6 +22,11 @@ public class PiecesGroup : MonoBehaviour
 
     private float _prevZAngle;
 
+    [Space]
+
+    [SerializeField] private int _groupId;
+    public int GroupId => _groupId;
+
 
     private void Awake()
     {
