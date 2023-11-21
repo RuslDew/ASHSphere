@@ -15,6 +15,8 @@ public class Pointer : MonoBehaviour
 
     public Vector2 CurrentSpeed { get; private set; } = Vector2.zero;
 
+    [SerializeField] private float _originalWidth = 1920f;
+
 
     private void Update()
     {
@@ -60,7 +62,11 @@ public class Pointer : MonoBehaviour
             Vector2 currentPos = GetCurrentPointerPos();
             Vector2 speed = currentPos - prevPos;
 
+            float multiplier = (float)Screen.width / _originalWidth;
+
             Vector2 currentSpeed = speed * GetSensetivity();
+            currentSpeed /= multiplier;
+
             SetCurrentSpeed(currentSpeed);
             OnPointerHold?.Invoke(currentSpeed);
 
