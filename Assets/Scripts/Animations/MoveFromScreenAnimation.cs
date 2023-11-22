@@ -46,7 +46,7 @@ public class MoveFromScreenAnimation : MonoBehaviour
         _animTweener = _rect.DOAnchorPos(_defaultPos, _animDuration).SetDelay(_startShowAnimDelay).SetEase(_showEase).OnComplete(() => onComplete?.Invoke());
     }
 
-    public void MoveFromScreen()
+    public void MoveFromScreen(Action onComplete = null)
     {
         CheckToKeepPositions();
 
@@ -55,6 +55,6 @@ public class MoveFromScreenAnimation : MonoBehaviour
 
         _rect.anchoredPosition = _defaultPos;
 
-        _animTweener = _rect.DOAnchorPos(_hiddenPos, _animDuration).SetDelay(_startHideAnimDelay).SetEase(_hideEase);
+        _animTweener = _rect.DOAnchorPos(_hiddenPos, _animDuration).SetDelay(_startHideAnimDelay).SetEase(_hideEase).OnComplete(() => onComplete?.Invoke());
     }
 }

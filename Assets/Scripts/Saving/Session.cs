@@ -7,10 +7,11 @@ public class Session
     public string History { get; private set; }
 
 
-    public Session(DateTime startDate, string sessionName)
+    public Session(DateTime startDate, string sessionName, string history = "")
     {
         SessionStartDate = startDate;
         SessionName = sessionName;
+        History = history;
     }
 
     public void SaveHistory(string history)

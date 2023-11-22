@@ -9,7 +9,8 @@ public class MenuScreen : ScreenBase
 
     public override void Show(Action onComplete = null)
     {
-        _layout.enabled = false;
+        if (_layout != null)
+            _layout.enabled = false;
 
         base.Show(() =>
         {
@@ -18,10 +19,11 @@ public class MenuScreen : ScreenBase
         });
     }
 
-    public override void Hide()
+    public override void Hide(Action onComplete = null)
     {
-        _layout.enabled = false;
+        if (_layout != null)
+            _layout.enabled = false;
 
-        base.Hide();
+        base.Hide(() => onComplete?.Invoke());
     }
 }

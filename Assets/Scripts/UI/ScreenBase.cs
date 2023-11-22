@@ -11,19 +11,40 @@ public class ScreenBase : MonoBehaviour
 
     [SerializeField] private float _disableOnHideDelay = 2f;
 
-    private int _finishedElementAnimationsCount = 0;
+    private int _finishedShowElementAnimationsCount = 0;
+    private int _finishedHideElementAnimationsCount = 0;
 
     private Action _onCompleteShow;
+    private Action _onCompleteHide;
 
 
-    public virtual void Hide()
+    public void Show()
     {
+        Show(null);
+    }    
+
+    public void Hide()
+    {
+        Hide(null);
+    }
+
+    public virtual void Hide(Action onComplete = null)
+    {
+        if (!gameObject.activeSelf)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
+        _finishedHideElementAnimationsCount = 0;
+        _onCompleteHide = onComplete;
+
         if (_hideSequence != null)
             _hideSequence.Kill();
 
         foreach (MoveFromScreenAnimation element in _elementsAnimation)
         {
-            element.MoveFromScreen();
+            element.MoveFromScreen(() => IncreaseFinishedHideElementAnimationsCount());
         }
 
         _hideSequence = DOTween.Sequence().AppendCallback(() =>
@@ -34,7 +55,7 @@ public class ScreenBase : MonoBehaviour
 
     public virtual void Show(Action onComplete = null)
     {
-        _finishedElementAnimationsCount = 0;
+        _finishedShowElementAnimationsCount = 0;
         _onCompleteShow = onComplete;
 
         if (_hideSequence != null)
@@ -44,19 +65,31 @@ public class ScreenBase : MonoBehaviour
 
         foreach (MoveFromScreenAnimation element in _elementsAnimation)
         {
-            element.MoveToScreen(() => IncreaseFinishedElementAnimationsCount());
+            element.MoveToScreen(() => IncreaseFinishedShowElementAnimationsCount());
         }
     }
 
-    private void IncreaseFinishedElementAnimationsCount()
+    private void IncreaseFinishedShowElementAnimationsCount()
     {
-        _finishedElementAnimationsCount++;
+        _finishedShowElementAnimationsCount++;
 
-        if (_finishedElementAnimationsCount == _elementsAnimation.Count)
+        if (_finishedShowElementAnimationsCount == _elementsAnimation.Count)
         {
             _onCompleteShow?.Invoke();
-            _finishedElementAnimationsCount = 0;
+            _finishedShowElementAnimationsCount = 0;
             _onCompleteShow = null;
+        }
+    }
+
+    private void IncreaseFinishedHideElementAnimationsCount()
+    {
+        _finishedHideElementAnimationsCount++;
+
+        if (_finishedHideElementAnimationsCount == _elementsAnimation.Count)
+        {
+            _onCompleteHide?.Invoke();
+            _finishedHideElementAnimationsCount = 0;
+            _onCompleteHide = null;
         }
     }
 }

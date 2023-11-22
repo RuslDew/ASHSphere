@@ -1,15 +1,31 @@
 using UnityEngine;
 using System;
+using TMPro;
 
 public class SaveButton : MonoBehaviour
 {
-    public Session TargetSession { get; private set; }
+    public SaveData Data { get; private set; }
 
-    public Action OnClick; 
-    public Action OnClickRemove; 
+    public Action OnClickSelect; 
+    public Action OnClickRemove;
 
-    public void Init()
+    [SerializeField] private TextMeshProUGUI _saveNameText;
+
+
+    public void Init(SaveData data)
     {
+        Data = data;
 
+        _saveNameText.text = Data.SaveName;
+    }
+
+    public void ClickSelectHandler()
+    {
+        OnClickSelect?.Invoke();
+    }
+
+    public void ClickRemoveHandler()
+    {
+        OnClickRemove?.Invoke();
     }
 }

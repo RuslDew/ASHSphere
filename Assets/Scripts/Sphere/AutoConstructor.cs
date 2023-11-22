@@ -10,6 +10,7 @@ public class AutoConstructor
 
     [SerializeField] private float _mixDuration = 0.5f;
     [SerializeField] private float _assembleDuration = 0.5f;
+    [SerializeField] private float _loadHistoryDuration = 0.5f;
 
 
     public void Init(List<PiecesGroup> avaibleGroups)
@@ -76,6 +77,30 @@ public class AutoConstructor
         {
             SetRandomAngleForGroup(groupIndex + 1, onSetAllGroups);
         }, _mixDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false);
+    }
+
+    public void LoadHistory(List<HistoryAction> history, Action onFullyLoadHistory)
+    {
+        SetAngleFromHistory(0, history, onFullyLoadHistory);
+    }
+
+    private void SetAngleFromHistory(int historyIndex, List<HistoryAction> history, Action onFullyLoadHistory)
+    {
+        if (historyIndex < 0 || historyIndex >= history.Count)
+        {
+            onFullyLoadHistory?.Invoke();
+            return;
+        }
+
+        HistoryAction action = history[historyIndex];
+        PiecesGroup actionGroup = action.RotatedGroup;
+        float angleChange = history[historyIndex].AngleChange;
+        float angle = actionGroup.CurrentZAngle + angleChange;
+
+        actionGroup.SetRotation(angle, () =>
+        {
+            SetAngleFromHistory(historyIndex + 1, history, onFullyLoadHistory);
+        }, _loadHistoryDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false);
     }
 
     public void AddActionToHistory(PiecesGroup group, float angleChange)

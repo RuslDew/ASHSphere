@@ -1,9 +1,12 @@
 using UnityEngine;
+using System;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private ScreenBase _menuScreen;
+    [SerializeField] private ScreenBase _inputNameScreen;
     [SerializeField] private ScreenBase _gameScreen;
+    [SerializeField] private SavesScreen _savesScreen;
     [SerializeField] private FocusOnSphereAnimation _focusAnim;
 
     private bool _isGameStarted = false;
@@ -18,47 +21,69 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         _groupsController.AllowActions(false);
+
+        _savesScreen.OnSelectSave += StartSavedGame;
     }
 
-    public void StartGameMixed()
-    {
-        StartGame(true);
-    }
-
-    public void StartGameAssembled()
-    {
-        StartGame(false);
-    }
-
-    private void StartGame(bool mixed)
+    public void StartGameMixed(string sessionName)
     {
         if (!_isGameStarted)
         {
+            StartNewSession(sessionName);
+
             _menuScreen.Hide();
+            _inputNameScreen.Hide();
 
             _isGameStarted = true;
 
-            if (mixed)
+            _focusAnim.Focus();
+            _groupsController.Mix(() =>
             {
-                _focusAnim.Focus();
-                _groupsController.Mix(() =>
-                {
-                    _groupsController.AllowActions(true);
-                    _gameScreen.Show();
-                    _timer.StartTimer(_currentSession);
-                });
-            }
-            else
-            {
-                _focusAnim.Focus(() =>
-                {
-                    _groupsController.AllowActions(true);
-                    _gameScreen.Show();
-                    _timer.StartTimer(_currentSession);
-                });
-            }
+                _groupsController.AllowActions(true);
+                _gameScreen.Show();
+                _timer.StartTimer(_currentSession);
+            });
+        }
+    }
 
-            StartNewSession();
+    public void StartGameAssembled(string sessionName)
+    {
+        if (!_isGameStarted)
+        {
+            StartNewSession(sessionName);
+
+            _menuScreen.Hide();
+            _inputNameScreen.Hide();
+
+            _isGameStarted = true;
+
+            _focusAnim.Focus(() =>
+            {
+                _groupsController.AllowActions(true);
+                _gameScreen.Show();
+                _timer.StartTimer(_currentSession);
+            });
+        }
+    }
+
+    public void StartSavedGame(SaveData data)
+    {
+        if (!_isGameStarted)
+        {
+            LoadSession(data);
+
+            _menuScreen.Hide();
+            _savesScreen.Hide();
+
+            _isGameStarted = true;
+
+            _focusAnim.Focus();
+            _groupsController.LoadHistory(_currentSession.History, () =>
+            {
+                _groupsController.AllowActions(true);
+                _gameScreen.Show();
+                _timer.StartTimer(_currentSession);
+            });
         }
     }
 
@@ -76,11 +101,29 @@ public class GameController : MonoBehaviour
             _groupsController.Assemble(() => _menuScreen.Show());
 
             _timer.StopTimer();
+
+            SaveCurrentSession();
         }
     }
 
-    public void StartNewSession()
+    private void StartNewSession(string sessionName)
     {
-        _currentSession = new Session(System.DateTime.Now, "");
+        string correctName = sessionName == "" ? DateTime.Now.ToString() : sessionName;
+
+        _currentSession = new Session(DateTime.Now, correctName);
+    }
+
+    private void LoadSession(SaveData sessionData)
+    {
+        DateTime sessionStartDate = DateTime.Parse(sessionData.StartDate);
+
+        _currentSession = new Session(sessionStartDate, sessionData.SaveName, sessionData.History);
+    }
+
+    private void SaveCurrentSession()
+    {
+        _currentSession.SaveHistory(_groupsController.GetCurrentActionsHistory());
+
+        _saveManager.SaveSession(_currentSession);
     }
 }

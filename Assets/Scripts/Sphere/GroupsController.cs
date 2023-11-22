@@ -59,6 +59,13 @@ public class GroupsController : MonoBehaviour
         _autoConstructor.MixPieces(onComplete);
     }
 
+    public void LoadHistory(string history, Action onComplete)
+    {
+        List<HistoryAction> historyActions = LoadActionsFromString(history);
+
+        _autoConstructor.LoadHistory(historyActions, onComplete);
+    }
+
     public void AllowActions(bool allow)
     {
         EnablePointers(allow);
@@ -77,7 +84,7 @@ public class GroupsController : MonoBehaviour
         return _autoConstructor.GetCurrentActionsHistory();
     }
 
-    public List<HistoryAction> LoadActionsFromString(string history)
+    private List<HistoryAction> LoadActionsFromString(string history)
     {
         return _autoConstructor.LoadActionsFromString(history);
     }
