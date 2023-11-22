@@ -5,7 +5,7 @@ public class AxisDrawer : MonoBehaviour
     [SerializeField] private Color _color;
     [SerializeField] private float _size = 10f;
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = _color;
@@ -16,6 +16,7 @@ public class AxisDrawer : MonoBehaviour
         Gizmos.DrawLine(from, to);
         Gizmos.DrawSphere(transform.position, 0.1f);
     }
+#endif
 
     public void SetColor(Color color)
     {

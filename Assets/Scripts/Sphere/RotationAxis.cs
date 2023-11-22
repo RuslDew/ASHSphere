@@ -67,6 +67,7 @@ public class RotationAxis : MonoBehaviour
         return angle360;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (!_debug)
@@ -80,4 +81,5 @@ public class RotationAxis : MonoBehaviour
         Gizmos.DrawLine(Vector3.zero, originVector * 100f);
         Gizmos.DrawLine(Vector3.zero, currentVector * 100f);
     }
+#endif
 }

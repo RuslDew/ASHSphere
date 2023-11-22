@@ -81,6 +81,6 @@ public class GameController : MonoBehaviour
 
     public void StartNewSession()
     {
-        _currentSession = new Session(System.DateTime.Now);
+        _currentSession = new Session(System.DateTime.Now, "");
     }
 }
