@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct SaveData
+public class SaveData
 {
     public string SaveName;
 
-    public string StartDate;
+    public float GameDuration;
     public string History;
 
-    public SaveData(string saveName, string startDate, string history)
+    public SaveData(string saveName, float gameDuration, string history)
     {
         SaveName = saveName;
-        StartDate = startDate;
+        GameDuration = gameDuration;
         History = history;
-    }
-
-    public void UpdateHistory(string newHistory)
-    {
-        History = newHistory;
     }
 }
 
@@ -79,13 +74,16 @@ public class SaveManager : MonoBehaviour
         {
             if (data.SaveName == session.SessionName)
             {
-                data.UpdateHistory(session.History);
+                data.History = session.History;
+                data.GameDuration = session.GameDuration;
+
+                SaveData();
 
                 return;
             }
         }
 
-        _saveDatas.SaveDatas.Add(new SaveData(session.SessionName, session.SessionStartDate.ToString(), session.History));
+        _saveDatas.SaveDatas.Add(new SaveData(session.SessionName, session.GameDuration, session.History));
 
         SaveData();
     }

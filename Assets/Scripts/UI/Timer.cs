@@ -17,9 +17,11 @@ public class Timer : MonoBehaviour
 
         _updateTimerSequence = DOTween.Sequence().AppendCallback(() =>
         {
-            TimeSpan span = DateTime.Now - session.SessionStartDate;
+            TimeSpan span = TimeSpan.FromSeconds(session.GameDuration);
 
             _timerText.text = span.ToString(_timeFormat);
+
+            session.GameDuration++;
         }).AppendInterval(1f).SetLoops(-1);
     }
 

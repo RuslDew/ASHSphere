@@ -1,21 +1,14 @@
-using System;
-
 public class Session
 {
     public string SessionName { get; private set; }
-    public DateTime SessionStartDate { get; private set; }
-    public string History { get; private set; }
+    public float GameDuration;
+    public string History;
 
 
-    public Session(DateTime startDate, string sessionName, string history = "")
+    public Session(string sessionName, string history = "", float gameDuration = 0f)
     {
-        SessionStartDate = startDate;
+        GameDuration = gameDuration;
         SessionName = sessionName;
-        History = history;
-    }
-
-    public void SaveHistory(string history)
-    {
         History = history;
     }
 }

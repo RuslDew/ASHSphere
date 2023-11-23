@@ -98,11 +98,11 @@ public class GameController : MonoBehaviour
 
             _groupsController.AllowActions(false);
 
+            SaveCurrentSession();
+
             _groupsController.Assemble(() => _menuScreen.Show());
 
             _timer.StopTimer();
-
-            SaveCurrentSession();
         }
     }
 
@@ -110,19 +110,17 @@ public class GameController : MonoBehaviour
     {
         string correctName = sessionName == "" ? DateTime.Now.ToString() : sessionName;
 
-        _currentSession = new Session(DateTime.Now, correctName);
+        _currentSession = new Session(correctName);
     }
 
     private void LoadSession(SaveData sessionData)
     {
-        DateTime sessionStartDate = DateTime.Parse(sessionData.StartDate);
-
-        _currentSession = new Session(sessionStartDate, sessionData.SaveName, sessionData.History);
+        _currentSession = new Session(sessionData.SaveName, sessionData.History, sessionData.GameDuration);
     }
 
     private void SaveCurrentSession()
     {
-        _currentSession.SaveHistory(_groupsController.GetCurrentActionsHistory());
+        _currentSession.History = _groupsController.GetCurrentActionsHistory();
 
         _saveManager.SaveSession(_currentSession);
     }
