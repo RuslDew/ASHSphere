@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using DG.Tweening;
 
 public class EdgeRotation : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class EdgeRotation : MonoBehaviour
     private SpherePiece _prevPiece;
     private List<PiecesGroup> _prevPieceTriedGroups = new List<PiecesGroup>();
 
+    [Space]
+
+    [SerializeField] private float _clearTriedGroupsDelay = 2f;
+    private Sequence _clearTriedGroupsSequence;
+
 
     private void Awake()
     {
@@ -31,7 +37,7 @@ public class EdgeRotation : MonoBehaviour
 
     private void SelectDirectionHandler(Vector3 pointerDirection, Vector3 pointerDirectionPerpendicular)
     {
-        if (_isCurrentlyRotating)
+        if (_isCurrentlyRotating || _isStoppingRotation)
             return;
 
         Vector2 pointerPos = _pointer.GetCurrentPointerPos();
@@ -44,6 +50,9 @@ public class EdgeRotation : MonoBehaviour
 
             if (piece != null)
             {
+                if (_clearTriedGroupsSequence != null)
+                    _clearTriedGroupsSequence.Kill();
+
                 List<PiecesGroup> pieceGroups = _groupsController.GetGroupsThatContainingPiece(piece);
 
                 if (_currentRotatingGroup != null)
@@ -120,8 +129,20 @@ public class EdgeRotation : MonoBehaviour
             {
                 SetCurrentlyRotating(false);
                 CompleteStoppingRotation();
+                ClearTriedGroupsListWithDelay();
             }, _rotationSnapSpeed, _rotationSnapEase);
         }
+    }
+
+    private void ClearTriedGroupsListWithDelay()
+    {
+        if (_clearTriedGroupsSequence != null)
+            _clearTriedGroupsSequence.Kill();
+
+        _clearTriedGroupsSequence = DOTween.Sequence().AppendCallback(() =>
+        {
+            _prevPieceTriedGroups.Clear();
+        }).SetDelay(_clearTriedGroupsDelay);
     }
 
     private void CompleteStoppingRotation()
