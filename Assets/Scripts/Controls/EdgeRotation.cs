@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class EdgeRotation : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class EdgeRotation : MonoBehaviour
 
     private bool _isCurrentlyRotating = false;
     private bool _isStoppingRotation = false;
+
+    private SpherePiece _prevPiece;
+    private List<PiecesGroup> _prevPieceTriedGroups = new List<PiecesGroup>();
 
 
     private void Awake()
@@ -42,7 +46,17 @@ public class EdgeRotation : MonoBehaviour
             {
                 List<PiecesGroup> pieceGroups = _groupsController.GetGroupsThatContainingPiece(piece);
 
-                _currentRotatingGroup = GetCorrectGroup(pieceGroups, pointerDirection, pointerDirectionPerpendicular);
+                if (_currentRotatingGroup != null)
+                {
+                    if (_prevPiece == piece && _prevPieceTriedGroups.Count < pieceGroups.Count - 1)
+                        _prevPieceTriedGroups.Add(_currentRotatingGroup);
+                    else
+                        _prevPieceTriedGroups.Clear();
+                }
+
+                _prevPiece = piece;
+
+                _currentRotatingGroup = GetCorrectGroup(pieceGroups, _prevPieceTriedGroups, pointerDirection, pointerDirectionPerpendicular);
 
                 if (_currentRotatingGroup != null)
                 {
@@ -54,7 +68,7 @@ public class EdgeRotation : MonoBehaviour
         }
     }
 
-    private PiecesGroup GetCorrectGroup(List<PiecesGroup> avaibleGroups, Vector3 pointerDirection, Vector3 pointerDirectionPerpendicular)
+    private PiecesGroup GetCorrectGroup(List<PiecesGroup> avaibleGroups, List<PiecesGroup> alreadyTriedGroups, Vector3 pointerDirection, Vector3 pointerDirectionPerpendicular)
     {
         if (avaibleGroups.Count == 0)
             return null;
@@ -85,9 +99,15 @@ public class EdgeRotation : MonoBehaviour
 
         avaibleGroups.Sort(comparison);
 
-        PiecesGroup correctGroup = avaibleGroups[0];
+        List<PiecesGroup> notTriedGroups = avaibleGroups.Where(group => !alreadyTriedGroups.Contains(group)).ToList();
 
-        return correctGroup;
+        if (notTriedGroups != null && notTriedGroups.Count > 0)
+        {
+            PiecesGroup correctGroup = notTriedGroups[0];
+            return correctGroup;
+        }
+
+        return null;
     }
 
     private void StopRotation()

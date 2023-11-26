@@ -15,7 +15,9 @@ public class MenuScreen : ScreenBase
         base.Show(() =>
         {
             onComplete?.Invoke();
-            _layout.enabled = true;
+
+            if (_layout != null)
+                _layout.enabled = true;
         });
     }
 

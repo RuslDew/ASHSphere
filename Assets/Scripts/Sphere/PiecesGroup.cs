@@ -27,6 +27,11 @@ public class PiecesGroup : MonoBehaviour
     [SerializeField] private int _groupId;
     public int GroupId => _groupId;
 
+    [Space]
+
+    [SerializeField] private Color _highlightPiecesColor = Color.red;
+    [SerializeField] private float _blinkingFrequence = 1f;
+
 
     private void Awake()
     {
@@ -55,6 +60,8 @@ public class PiecesGroup : MonoBehaviour
         if (_rotateSequence != null)
             _rotateSequence.Kill();
 
+        StartBlinkingAnim();
+
         _rotateSequence = DOTween.Sequence().AppendCallback(() =>
         {
             float rotationSpeed = pointer.CurrentSpeed.x + pointer.CurrentSpeed.y;
@@ -68,6 +75,8 @@ public class PiecesGroup : MonoBehaviour
         if (_rotateSequence != null)
             _rotateSequence.Kill();
 
+        StopBlinkingAnim();
+
         float currentZAngle = _axis.CurrentZAngle;
         float singleRotationAngle = 72f;
         float rotationPeriods = Mathf.Round(currentZAngle / singleRotationAngle);
@@ -75,6 +84,18 @@ public class PiecesGroup : MonoBehaviour
 
         SetRotation(snappingZAngle, onCompleteRotation, snapSpeed, snapEase);
     }
+
+    private void StartBlinkingAnim()
+    {
+        foreach (SpherePiece piece in Pieces)
+            piece.StartBlinking(_highlightPiecesColor, _blinkingFrequence);
+    }
+    private void StopBlinkingAnim()
+    {
+        foreach (SpherePiece piece in Pieces)
+            piece.StopBlinking();
+    }
+
 
     public void SetRotation(float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutElastic, bool reparentPieces = false, bool speedBased = true, bool writeToHistory = true)
     {
