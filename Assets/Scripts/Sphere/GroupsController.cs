@@ -10,13 +10,18 @@ public class GroupsController : MonoBehaviour
 
     [SerializeField] private List<Pointer> _sphereControlPointers = new List<Pointer>();
 
+    [SerializeField] private RotateAnglePanel _rotateAngleVisual;
+
 
     private void Awake()
     {
         _autoConstructor.Init(_groups);
 
         foreach (PiecesGroup group in _groups)
+        {
             group.OnCompleteRotation += (angleChange, writeToHistory) => PieceCompleteRotationHandler(group, angleChange, writeToHistory);
+            group.OnRotate += (angleChange) => _rotateAngleVisual.Show(angleChange);
+        }
     }
 
     private void PieceCompleteRotationHandler(PiecesGroup group, float angleChange, bool writeToHistory)
@@ -25,6 +30,8 @@ public class GroupsController : MonoBehaviour
             _autoConstructor.AddActionToHistory(group, angleChange);
 
         UpdateGroups();
+
+        _rotateAngleVisual.Hide();
     }
 
     private void UpdateGroups()

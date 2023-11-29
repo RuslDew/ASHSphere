@@ -14,13 +14,12 @@ public class PiecesGroup : MonoBehaviour
     [SerializeField] private Transform _defaultPiecesParent;
 
     public event Action<float, bool> OnCompleteRotation;
+    public event Action<float> OnRotate;
 
     private Sequence _rotateSequence;
 
     public Vector3 Axis => _axis.Axis;
     public float CurrentZAngle => _axis.CurrentZAngle;
-
-    private float _prevZAngle;
 
     [Space]
 
@@ -36,8 +35,6 @@ public class PiecesGroup : MonoBehaviour
     private void Awake()
     {
         UpdatePieces();
-
-        SetPrevZAngle(CurrentZAngle);
     }
 
     public void UpdatePieces()
@@ -67,6 +64,10 @@ public class PiecesGroup : MonoBehaviour
             float rotationSpeed = pointer.CurrentSpeed.x + pointer.CurrentSpeed.y;
 
             _axis.Rotate(Pieces.Select(piece => piece.transform).ToList(), rotationSpeed);
+
+            float angleChange = CurrentZAngle;
+
+            OnRotate?.Invoke(angleChange);
         }).SetLoops(-1);
     }
 
@@ -77,9 +78,8 @@ public class PiecesGroup : MonoBehaviour
 
         StopBlinkingAnim();
 
-        float currentZAngle = _axis.CurrentZAngle;
         float singleRotationAngle = 72f;
-        float rotationPeriods = Mathf.Round(currentZAngle / singleRotationAngle);
+        float rotationPeriods = Mathf.Round(CurrentZAngle / singleRotationAngle);
         float snappingZAngle = singleRotationAngle * rotationPeriods;
 
         SetRotation(snappingZAngle, onCompleteRotation, snapSpeed, snapEase);
@@ -101,23 +101,15 @@ public class PiecesGroup : MonoBehaviour
     {
         List<Transform> rotatingObjects = Pieces.Select(piece => piece.transform).ToList();
 
-        _axis.SetRotation(rotatingObjects, zAngle, () =>
+        _axis.SetRotation(rotatingObjects, zAngle, (angleChange) =>
         {
             StartCoroutine(WaitForFixedUpdateRoutine(() =>
             {
-                float angleChange = Mathf.Round(CurrentZAngle - _prevZAngle);
                 OnCompleteRotation?.Invoke(angleChange, writeToHistory);
-
-                SetPrevZAngle(zAngle);
 
                 onComplete?.Invoke();
             }));
         }, snapSpeed, snapEase, speedBased);
-    }
-
-    private void SetPrevZAngle(float angle)
-    {
-        _prevZAngle = angle;
     }
 
     private IEnumerator WaitForFixedUpdateRoutine(Action onComplete)

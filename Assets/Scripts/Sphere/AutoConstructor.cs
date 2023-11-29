@@ -68,10 +68,10 @@ public class AutoConstructor
 
         PiecesGroup group = _groups[groupIndex];
 
-        float singleAngleStep = 72f;
-        int maxPositionsCount = 5;
-        int randomPosition = UnityEngine.Random.Range(0, maxPositionsCount);
-        float randomAngle = (float)randomPosition * singleAngleStep;
+        int singleAngleStep = 72;
+        int maxPositionsCount = 2;
+        int randomPosition = UnityEngine.Random.Range(-maxPositionsCount, maxPositionsCount + 1);
+        float randomAngle = Mathf.Round((float)(randomPosition * singleAngleStep));
 
         group.SetRotation(randomAngle, () =>
         {

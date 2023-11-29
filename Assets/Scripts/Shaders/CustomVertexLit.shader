@@ -1,7 +1,7 @@
 Shader "Mobile/CustomVertexLit" {
 Properties {
     _MainTex ("Base (RGB)", 2D) = "white" {}
-    _Color ("Color", Color) = (1, 1, 1, 1)
+    _ColorLightness ("Color Lightness", Color) = (1, 1, 1, 1)
 }
 
 SubShader {
@@ -22,8 +22,8 @@ SubShader {
         }
 
         SetTexture [_MainTex] {
-            constantColor [_Color]
-            Combine previous * constant
+            constantColor [_ColorLightness]
+            Combine previous + constant
         }
     }
 

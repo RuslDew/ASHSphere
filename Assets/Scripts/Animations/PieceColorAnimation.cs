@@ -12,7 +12,7 @@ public class PieceColorAnimation : MonoBehaviour
 
     private bool _isHighlited = false;
 
-    private Color _defaultColor = Color.white;
+    private Color _defaultColor = Color.black;
 
     private Tweener _setColorTweener;
 
@@ -65,9 +65,9 @@ public class PieceColorAnimation : MonoBehaviour
         if (_setColorTweener != null)
             _setColorTweener.Kill();
 
-        _setColorTweener = DOTween.To(() => _propertyBlock.GetColor("_Color"), (newColor) =>
+        _setColorTweener = DOTween.To(() => _propertyBlock.GetColor("_ColorLightness"), (newColor) =>
         {
-            _propertyBlock.SetColor("_Color", newColor);
+            _propertyBlock.SetColor("_ColorLightness", newColor);
             _renderer.SetPropertyBlock(_propertyBlock);
 
         }, color, duration).OnComplete(() => onComplete?.Invoke());      

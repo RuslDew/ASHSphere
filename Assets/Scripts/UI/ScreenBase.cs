@@ -55,6 +55,12 @@ public class ScreenBase : MonoBehaviour
 
     public virtual void Show(Action onComplete = null)
     {
+        if (gameObject.activeSelf)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
         _finishedShowElementAnimationsCount = 0;
         _onCompleteShow = onComplete;
 
