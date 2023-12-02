@@ -31,6 +31,11 @@ public class PiecesGroup : MonoBehaviour
     [SerializeField] private Color _highlightPiecesColor = Color.red;
     [SerializeField] private float _blinkingFrequence = 1f;
 
+    [SerializeField] private float _offsetForHint = 0f;
+    public float OffsetForHint => _offsetForHint;
+
+    private List<SpherePiece> _highlightedPieces = new List<SpherePiece>();
+
 
     private void Awake()
     {
@@ -57,7 +62,7 @@ public class PiecesGroup : MonoBehaviour
         if (_rotateSequence != null)
             _rotateSequence.Kill();
 
-        StartBlinkingAnim();
+        EnableHighlight();
 
         _rotateSequence = DOTween.Sequence().AppendCallback(() =>
         {
@@ -76,7 +81,7 @@ public class PiecesGroup : MonoBehaviour
         if (_rotateSequence != null)
             _rotateSequence.Kill();
 
-        StopBlinkingAnim();
+        DisableHighlight();
 
         float singleRotationAngle = 72f;
         float rotationPeriods = Mathf.Round(CurrentZAngle / singleRotationAngle);
@@ -85,14 +90,18 @@ public class PiecesGroup : MonoBehaviour
         SetRotation(snappingZAngle, onCompleteRotation, snapSpeed, snapEase);
     }
 
-    private void StartBlinkingAnim()
+    public void EnableHighlight()
     {
-        foreach (SpherePiece piece in Pieces)
+        _highlightedPieces.Clear();
+        _highlightedPieces.AddRange(Pieces.Where(piece => !piece.IsBlinking));
+
+        foreach (SpherePiece piece in _highlightedPieces)
             piece.StartBlinking(_highlightPiecesColor, _blinkingFrequence);
     }
-    private void StopBlinkingAnim()
+
+    public void DisableHighlight()
     {
-        foreach (SpherePiece piece in Pieces)
+        foreach (SpherePiece piece in _highlightedPieces)
             piece.StopBlinking();
     }
 
@@ -117,5 +126,19 @@ public class PiecesGroup : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         onComplete?.Invoke();
+    }
+
+    public Vector3 GetActualCenterPosition()
+    {
+        Vector3 positionsSum = Vector3.zero;
+
+        foreach (SpherePiece piece in Pieces)
+        {
+            positionsSum += piece.Center;
+        }
+
+        Vector3 averagePosition = positionsSum / Pieces.Count;
+
+        return averagePosition;
     }
 }

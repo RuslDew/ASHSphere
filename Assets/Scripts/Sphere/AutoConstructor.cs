@@ -12,6 +12,8 @@ public class AutoConstructor
     [SerializeField] private float _assembleDuration = 0.5f;
     [SerializeField] private float _loadHistoryDuration = 0.5f;
 
+    public event Action OnAddActionToHistory;
+
 
     public void Init(List<PiecesGroup> avaibleGroups)
     {
@@ -44,10 +46,9 @@ public class AutoConstructor
 
         HistoryAction redoAction = _actionsHistory[actionIndex];
         PiecesGroup redoGroup = redoAction.RotatedGroup;
-        float angleChange = redoAction.AngleChange;
-        float angle = redoGroup.CurrentZAngle - angleChange;
+        float angleChange = -redoAction.AngleChange;
 
-        redoGroup.SetRotation(angle, () =>
+        redoGroup.SetRotation(angleChange, () =>
         {
             RedoHistoryAction(actionIndex - 1, onRedoAllActions);
         }, _assembleDuration, snapEase: DG.Tweening.Ease.OutElastic, reparentPieces: true, speedBased: false, writeToHistory: false);
@@ -108,7 +109,9 @@ public class AutoConstructor
         if (angleChange == 0)
             return;
 
-        if (_actionsHistory.Count > 1)
+        OnAddActionToHistory?.Invoke();
+
+        if (_actionsHistory.Count > 0)
         {
             HistoryAction previousAction = _actionsHistory[_actionsHistory.Count - 1];
 
@@ -193,6 +196,14 @@ public class AutoConstructor
             if (group.GroupId == id)
                 return group;
         }
+
+        return null;
+    }
+
+    public HistoryAction GetLastHistoryAction()
+    {
+        if (_actionsHistory.Count > 0)
+            return _actionsHistory[_actionsHistory.Count - 1];
 
         return null;
     }

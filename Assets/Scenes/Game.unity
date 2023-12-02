@@ -1914,6 +1914,7 @@ MonoBehaviour:
   _groupId: 10
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &152087655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2054,7 @@ MonoBehaviour:
   _groupId: 0
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &163096516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,6 +2571,7 @@ MonoBehaviour:
   _groupId: 1
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &227005576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,6 +2973,7 @@ MonoBehaviour:
   _groupId: 5
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &255593463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,6 +3345,7 @@ MonoBehaviour:
   _groupId: 11
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &302068060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,6 +4347,7 @@ MonoBehaviour:
   _groupId: 16
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &401268427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4779,6 +4785,7 @@ MonoBehaviour:
   _groupId: 2
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &457374456
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,6 +6308,7 @@ MonoBehaviour:
   _groupId: 8
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &692954483
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6768,7 @@ MonoBehaviour:
   _groupId: 12
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &762273824
 GameObject:
   m_ObjectHideFlags: 0
@@ -7730,6 +7739,7 @@ MonoBehaviour:
   _groupId: 15
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &926320656
 GameObject:
   m_ObjectHideFlags: 0
@@ -9604,6 +9614,7 @@ MonoBehaviour:
   _groupId: 4
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &1178736383
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,6 +10608,7 @@ MonoBehaviour:
   _groupId: 17
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &1243597470
 GameObject:
   m_ObjectHideFlags: 0
@@ -12185,6 +12197,7 @@ Transform:
   - {fileID: 963842145}
   - {fileID: 543295141}
   - {fileID: 1231067090}
+  - {fileID: 543450652328537086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -13.83, z: 0}
 --- !u!114 &1415182849
@@ -12400,6 +12413,7 @@ MonoBehaviour:
   _groupId: 3
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &1438680637
 GameObject:
   m_ObjectHideFlags: 0
@@ -14883,6 +14897,7 @@ MonoBehaviour:
   _groupId: 13
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &1784264251
 GameObject:
   m_ObjectHideFlags: 0
@@ -15140,6 +15155,7 @@ MonoBehaviour:
   _groupId: 9
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &1834823126
 GameObject:
   m_ObjectHideFlags: 0
@@ -15696,6 +15712,7 @@ MonoBehaviour:
   _groupId: 6
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0
 --- !u!1 &1930434977
 GameObject:
   m_ObjectHideFlags: 0
@@ -16220,7 +16237,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000889116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3469287838324892765}
+        m_TargetAssemblyTypeName: RotationHint, Assembly-CSharp
+        m_MethodName: ShowHint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2000889116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16855,6 +16884,7 @@ MonoBehaviour:
   _groupId: 7
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: -0.5
 --- !u!1 &2066674412
 GameObject:
   m_ObjectHideFlags: 0
@@ -17015,6 +17045,7 @@ MonoBehaviour:
   _groupId: 14
   _highlightPiecesColor: {r: 0.7433963, g: 0.7433963, b: 0.7433963, a: 1}
   _blinkingFrequence: 0.5
+  _offsetForHint: 0.5
 --- !u!1 &2083438510
 GameObject:
   m_ObjectHideFlags: 0
@@ -17551,6 +17582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 17850604494051462}
+  _renderer: {fileID: 245557756082167301}
 --- !u!114 &17850604494051462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17797,6 +17829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 155219802671097650}
+  _renderer: {fileID: 7818983727992808238}
 --- !u!114 &155219802671097650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17897,6 +17930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 174150678033141799}
+  _renderer: {fileID: 8847959559104966592}
 --- !u!114 &174150678033141799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18066,6 +18100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 250695051240940813}
+  _renderer: {fileID: 3288910482179145698}
 --- !u!114 &250695051240940813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18144,6 +18179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 326236241053822147}
+  _renderer: {fileID: 5667350448076053800}
 --- !u!114 &326236241053822147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18256,6 +18292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 412278727101121536}
+  _renderer: {fileID: 8498520359694833184}
 --- !u!114 &412278727101121536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18384,6 +18421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 493662753886985124}
+  _renderer: {fileID: 6500793291268435507}
 --- !u!114 &493662753886985124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18397,6 +18435,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 6500793291268435507}
+--- !u!4 &543450652328537086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148388032836}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.05, y: 1, z: 1.05}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1415182848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &568118465771561604
 Transform:
   m_ObjectHideFlags: 0
@@ -18603,6 +18656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 633070654386788596}
+  _renderer: {fileID: 152165587900322309}
 --- !u!114 &633070654386788596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18715,6 +18769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 660200125151966284}
+  _renderer: {fileID: 2055740344758506956}
 --- !u!114 &660200125151966284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18793,6 +18848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 698465362394832356}
+  _renderer: {fileID: 475061245130090215}
 --- !u!114 &698465362394832356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19051,6 +19107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 873320237499191715}
+  _renderer: {fileID: 6163468797083642693}
 --- !u!114 &873320237499191715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19166,6 +19223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 910541552805368053}
+  _renderer: {fileID: 1686516946613579363}
 --- !u!114 &910541552805368053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19187,6 +19245,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321070303598839530}
   m_Mesh: {fileID: 8971785117647828553, guid: aec61ef338d34a44da86b733a7547c4d, type: 3}
+--- !u!1 &919132148388032836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543450652328537086}
+  - component: {fileID: 3469287838324892763}
+  - component: {fileID: 1711813854261989521}
+  - component: {fileID: 3469287838324892764}
+  - component: {fileID: 3469287838324892765}
+  m_Layer: 0
+  m_Name: RotationHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!4 &922004375761725670
 Transform:
   m_ObjectHideFlags: 0
@@ -19267,6 +19345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 964435227059710563}
+  _renderer: {fileID: 8530434279635253929}
 --- !u!114 &964435227059710563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19337,6 +19416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 983248240061478081}
+  _renderer: {fileID: 2868842424545075680}
 --- !u!114 &983248240061478081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19407,6 +19487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 983704727927237670}
+  _renderer: {fileID: 4280433871211607011}
 --- !u!114 &983704727927237670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19749,6 +19830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 1178724398957087899}
+  _renderer: {fileID: 1510307958162144795}
 --- !u!114 &1178724398957087899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19990,6 +20072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 1321070303598839533}
+  _renderer: {fileID: 8608216693414887093}
 --- !u!114 &1321070303598839533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20068,6 +20151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 1335563669684935923}
+  _renderer: {fileID: 6706931701817572718}
 --- !u!114 &1335563669684935923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20138,6 +20222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 1364290102547912730}
+  _renderer: {fileID: 8367062382667647989}
 --- !u!114 &1364290102547912730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20253,6 +20338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 1411175439686085754}
+  _renderer: {fileID: 7434531618784151373}
 --- !u!114 &1411175439686085754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20423,6 +20509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 1505600291691419469}
+  _renderer: {fileID: 392198012516419573}
 --- !u!114 &1505600291691419469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20696,6 +20783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 1682076979289507702}
+  _renderer: {fileID: 1483020349536361712}
 --- !u!114 &1682076979289507702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20808,6 +20896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 1688436629502603385}
+  _renderer: {fileID: 2433720275147032332}
 --- !u!114 &1688436629502603385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20821,6 +20910,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 2433720275147032332}
+--- !u!23 &1711813854261989521
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148388032836}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a49444529da48c94d90f58678fa9a4e6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &1716092195696007260
 Transform:
   m_ObjectHideFlags: 0
@@ -20992,6 +21123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 1786376839693592374}
+  _renderer: {fileID: 995696512598344639}
 --- !u!114 &1786376839693592374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21062,6 +21194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 1791678894033589365}
+  _renderer: {fileID: 1717764757139821842}
 --- !u!114 &1791678894033589365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21251,6 +21384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 1894397997404938916}
+  _renderer: {fileID: 6825664884461281656}
 --- !u!114 &1894397997404938916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21401,6 +21535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 1984781677924777062}
+  _renderer: {fileID: 7990063578636127488}
 --- !u!114 &1984781677924777062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21501,6 +21636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 2031947884546295963}
+  _renderer: {fileID: 7046844204915519248}
 --- !u!114 &2031947884546295963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21571,6 +21707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 2036653127707033280}
+  _renderer: {fileID: 2965110200946179007}
 --- !u!114 &2036653127707033280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21887,6 +22024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 2251270645377248099}
+  _renderer: {fileID: 2928527825974777145}
 --- !u!114 &2251270645377248099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21957,6 +22095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 2260389485413093013}
+  _renderer: {fileID: 8237388308153213560}
 --- !u!114 &2260389485413093013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22027,6 +22166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 2273097612104288354}
+  _renderer: {fileID: 4181507591158781463}
 --- !u!114 &2273097612104288354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22112,6 +22252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 2312776472975678532}
+  _renderer: {fileID: 6879554225276059127}
 --- !u!114 &2312776472975678532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22182,6 +22323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 2315216419164720880}
+  _renderer: {fileID: 3688174405021274249}
 --- !u!114 &2315216419164720880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22252,6 +22394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 2343089233060644553}
+  _renderer: {fileID: 8840825170311432846}
 --- !u!114 &2343089233060644553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22322,6 +22465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 2365781833606770474}
+  _renderer: {fileID: 8396948397235042125}
 --- !u!114 &2365781833606770474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22400,6 +22544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 2375126537068591057}
+  _renderer: {fileID: 6244874969273887364}
 --- !u!114 &2375126537068591057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22478,6 +22623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 2401643889215605063}
+  _renderer: {fileID: 2065382404355782928}
 --- !u!114 &2401643889215605063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22548,6 +22694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 2416854522434021324}
+  _renderer: {fileID: 2608100599114382446}
 --- !u!114 &2416854522434021324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22660,6 +22807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 2434269650457817015}
+  _renderer: {fileID: 641525759765653000}
 --- !u!114 &2434269650457817015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22860,6 +23008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 2506512185556787111}
+  _renderer: {fileID: 7596598039513404791}
 --- !u!114 &2506512185556787111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22930,6 +23079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 2538098688751648674}
+  _renderer: {fileID: 7905910324744132061}
 --- !u!114 &2538098688751648674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23068,6 +23218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 2606923769348046339}
+  _renderer: {fileID: 5648790227484841060}
 --- !u!114 &2606923769348046339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23188,6 +23339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 2644001215555619887}
+  _renderer: {fileID: 632164956931701062}
 --- !u!114 &2644001215555619887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23273,6 +23425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 2775633749015608528}
+  _renderer: {fileID: 6681653901066918123}
 --- !u!114 &2775633749015608528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23343,6 +23496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 2781034883080063958}
+  _renderer: {fileID: 4366506333607572272}
 --- !u!114 &2781034883080063958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23463,6 +23617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 2805986623193527852}
+  _renderer: {fileID: 8844430319028660195}
 --- !u!114 &2805986623193527852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23697,6 +23852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 2896955151909037314}
+  _renderer: {fileID: 7988394998939108596}
 --- !u!114 &2896955151909037314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23767,6 +23923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 2912310018929262702}
+  _renderer: {fileID: 8716411386101985603}
 --- !u!114 &2912310018929262702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23845,6 +24002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 2926065863164652299}
+  _renderer: {fileID: 4673879670811191327}
 --- !u!114 &2926065863164652299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23965,6 +24123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 2956494601269790315}
+  _renderer: {fileID: 6631770930513761329}
 --- !u!114 &2956494601269790315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24157,6 +24316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 3117562453367472166}
+  _renderer: {fileID: 1539289045798502441}
 --- !u!114 &3117562453367472166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24288,6 +24448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 3250705638440624109}
+  _renderer: {fileID: 8561088449699962412}
 --- !u!114 &3250705638440624109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24358,6 +24519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 3251170636074611556}
+  _renderer: {fileID: 5212644655713722665}
 --- !u!114 &3251170636074611556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24516,6 +24678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 3299688878136659256}
+  _renderer: {fileID: 1100540604977240709}
 --- !u!114 &3299688878136659256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24594,6 +24757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 3325368705907075598}
+  _renderer: {fileID: 3401228068905011032}
 --- !u!114 &3325368705907075598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24691,6 +24855,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &3469287838324892763
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148388032836}
+  m_Mesh: {fileID: 2534964839176971238, guid: 37c0868918d386f44a2ba41fe4ae6930, type: 3}
+--- !u!114 &3469287838324892764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148388032836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b5d0541ed12dd46bbf0cc1e092b66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 1711813854261989521}
+  _animationSpeed: {x: -0.01, y: 0}
+  _tilling: {x: 37, y: 1}
+--- !u!114 &3469287838324892765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148388032836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eab3ed5978d28a4f8cf78503ad95b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groupsController: {fileID: 1231067091}
+  _hintArrowsVisual: {fileID: 543450652328537086}
 --- !u!33 &3508211600661165226
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -24756,6 +24957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 3508814559634690749}
+  _renderer: {fileID: 2862305954095364938}
 --- !u!114 &3508814559634690749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24826,6 +25028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 3525025606793723475}
+  _renderer: {fileID: 840886909386778546}
 --- !u!114 &3525025606793723475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24896,6 +25099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 3535104549735936571}
+  _renderer: {fileID: 3609985974418578789}
 --- !u!114 &3535104549735936571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25031,6 +25235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 3579701937439518815}
+  _renderer: {fileID: 5679820721986834109}
 --- !u!114 &3579701937439518815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25330,6 +25535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 3826996250303196279}
+  _renderer: {fileID: 829150847226339526}
 --- !u!114 &3826996250303196279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25438,6 +25644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 3944374537767431541}
+  _renderer: {fileID: 629209793106834982}
 --- !u!114 &3944374537767431541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25653,6 +25860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 4170140151929252499}
+  _renderer: {fileID: 5325875587039985388}
 --- !u!114 &4170140151929252499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25780,6 +25988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 4221895761544072575}
+  _renderer: {fileID: 3986682801143206827}
 --- !u!114 &4221895761544072575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25900,6 +26109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 4285942972559367500}
+  _renderer: {fileID: 4300562320939704281}
 --- !u!114 &4285942972559367500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26146,6 +26356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 4374475880271596125}
+  _renderer: {fileID: 774098696698189854}
 --- !u!114 &4374475880271596125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26224,6 +26435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 4394612005216940579}
+  _renderer: {fileID: 8025311984773781442}
 --- !u!114 &4394612005216940579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26294,6 +26506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 4396613918336044524}
+  _renderer: {fileID: 5431982520507342332}
 --- !u!114 &4396613918336044524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26364,6 +26577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 4401379194750839203}
+  _renderer: {fileID: 1843627284024485213}
 --- !u!114 &4401379194750839203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26442,6 +26656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 4451518956502932968}
+  _renderer: {fileID: 8004343562883091256}
 --- !u!114 &4451518956502932968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26535,6 +26750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 4498686988329019804}
+  _renderer: {fileID: 2474068501161317345}
 --- !u!114 &4498686988329019804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26643,6 +26859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 4598713726105596959}
+  _renderer: {fileID: 4358040107300314842}
 --- !u!114 &4598713726105596959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26755,6 +26972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 4611620040051248708}
+  _renderer: {fileID: 8604133843301951238}
 --- !u!114 &4611620040051248708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26825,6 +27043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 4613718961151888102}
+  _renderer: {fileID: 140163206311171862}
 --- !u!114 &4613718961151888102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26918,6 +27137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 4644728924767034996}
+  _renderer: {fileID: 6100341024195316525}
 --- !u!114 &4644728924767034996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27030,6 +27250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 4694741374876357241}
+  _renderer: {fileID: 2794000475550818635}
 --- !u!114 &4694741374876357241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27146,6 +27367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 4797648489366434675}
+  _renderer: {fileID: 5917747271422074863}
 --- !u!114 &4797648489366434675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27273,6 +27495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 4880114662132555513}
+  _renderer: {fileID: 3554579867936045994}
 --- !u!114 &4880114662132555513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27358,6 +27581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 4899781345689235561}
+  _renderer: {fileID: 8288203833588593516}
 --- !u!114 &4899781345689235561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27428,6 +27652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 4953547746533788074}
+  _renderer: {fileID: 1721361065991747488}
 --- !u!114 &4953547746533788074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27521,6 +27746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 4983586318748214602}
+  _renderer: {fileID: 8558407323184196363}
 --- !u!114 &4983586318748214602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27591,6 +27817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 4987411288957615059}
+  _renderer: {fileID: 7409374900905491006}
 --- !u!114 &4987411288957615059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27904,6 +28131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 5151410443259346466}
+  _renderer: {fileID: 1215324419026330772}
 --- !u!114 &5151410443259346466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28081,6 +28309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 5260604859214756189}
+  _renderer: {fileID: 601238792479019889}
 --- !u!114 &5260604859214756189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28376,6 +28605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 5423181241847562930}
+  _renderer: {fileID: 5565817825884287877}
 --- !u!114 &5423181241847562930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28511,6 +28741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 5521416222207714952}
+  _renderer: {fileID: 8546117235539959278}
 --- !u!114 &5521416222207714952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28623,6 +28854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 5544931620429589517}
+  _renderer: {fileID: 1146895106741142776}
 --- !u!114 &5544931620429589517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29072,6 +29304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 5893648756793677060}
+  _renderer: {fileID: 5345034284215685501}
 --- !u!114 &5893648756793677060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29199,6 +29432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 5930543377435241215}
+  _renderer: {fileID: 8687118164336579939}
 --- !u!114 &5930543377435241215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29315,6 +29549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 6024773726764737726}
+  _renderer: {fileID: 4606478074307760196}
 --- !u!114 &6024773726764737726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29408,6 +29643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 6063533521973535066}
+  _renderer: {fileID: 1429440549721495092}
 --- !u!114 &6063533521973535066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29478,6 +29714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 6079447587528629079}
+  _renderer: {fileID: 1311000082048556595}
 --- !u!114 &6079447587528629079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29748,6 +29985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 6309852535851834902}
+  _renderer: {fileID: 40244058220330996}
 --- !u!114 &6309852535851834902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29833,6 +30071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 6347492776224580614}
+  _renderer: {fileID: 1512016269011803791}
 --- !u!114 &6347492776224580614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29933,6 +30172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 6385182307228256424}
+  _renderer: {fileID: 3722515401687853959}
 --- !u!114 &6385182307228256424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30011,6 +30251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 6436869150674892162}
+  _renderer: {fileID: 1229239148819566784}
 --- !u!114 &6436869150674892162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30131,6 +30372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 6490908503768063428}
+  _renderer: {fileID: 1906714963142169959}
 --- !u!114 &6490908503768063428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30315,6 +30557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 6627225987185366267}
+  _renderer: {fileID: 6457931290501091277}
 --- !u!114 &6627225987185366267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30427,6 +30670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 6648327794448446391}
+  _renderer: {fileID: 3428913723741542577}
 --- !u!114 &6648327794448446391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30627,6 +30871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 6778158678801273717}
+  _renderer: {fileID: 2215612296760795460}
 --- !u!114 &6778158678801273717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30705,6 +30950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 6801896350836510546}
+  _renderer: {fileID: 5589745543179748322}
 --- !u!114 &6801896350836510546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30817,6 +31063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 6843737809695711386}
+  _renderer: {fileID: 2499179558012503359}
 --- !u!114 &6843737809695711386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30937,6 +31184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 11
   _animation: {fileID: 6927523092384729675}
+  _renderer: {fileID: 7020777041060809399}
 --- !u!114 &6927523092384729675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31121,6 +31369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 6989740972797709346}
+  _renderer: {fileID: 5160498083294087780}
 --- !u!114 &6989740972797709346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31233,6 +31482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 7023937992401932172}
+  _renderer: {fileID: 139384678955541539}
 --- !u!114 &7023937992401932172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31488,6 +31738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 7316489152230944370}
+  _renderer: {fileID: 5543789382980119563}
 --- !u!114 &7316489152230944370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31558,6 +31809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 7328602007210172118}
+  _renderer: {fileID: 1115007458414228432}
 --- !u!114 &7328602007210172118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31807,6 +32059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 7435181314136346491}
+  _renderer: {fileID: 4828505392688230275}
 --- !u!114 &7435181314136346491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31919,6 +32172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 7473256525977533047}
+  _renderer: {fileID: 7919693697066318694}
 --- !u!114 &7473256525977533047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32012,6 +32266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _animation: {fileID: 7512595768875629269}
+  _renderer: {fileID: 2864955902846921606}
 --- !u!114 &7512595768875629269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32139,6 +32394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 7552904539642646994}
+  _renderer: {fileID: 3964514524151326709}
 --- !u!114 &7552904539642646994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32251,6 +32507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 7598242479137541536}
+  _renderer: {fileID: 7345063557769268139}
 --- !u!114 &7598242479137541536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32321,6 +32578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 7601119287735726901}
+  _renderer: {fileID: 3611755353066687350}
 --- !u!114 &7601119287735726901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32391,6 +32649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 7604469051264352266}
+  _renderer: {fileID: 7461608542880683177}
 --- !u!114 &7604469051264352266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32624,6 +32883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 1
   _animation: {fileID: 7884584358859953419}
+  _renderer: {fileID: 7848273924130699634}
 --- !u!114 &7884584358859953419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32694,6 +32954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 7901999296951246219}
+  _renderer: {fileID: 8046608878305174960}
 --- !u!114 &7901999296951246219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32894,6 +33155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 7985422654728830630}
+  _renderer: {fileID: 6203096997885599641}
 --- !u!114 &7985422654728830630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33048,6 +33310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 4
   _animation: {fileID: 7991955346152405085}
+  _renderer: {fileID: 6931527454756914299}
 --- !u!114 &7991955346152405085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33267,6 +33530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 8045254747940502346}
+  _renderer: {fileID: 3000254127956375744}
 --- !u!114 &8045254747940502346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33409,6 +33673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 10
   _animation: {fileID: 8086221409383966132}
+  _renderer: {fileID: 8023259854522515559}
 --- !u!114 &8086221409383966132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33494,6 +33759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 7
   _animation: {fileID: 8117622115944397552}
+  _renderer: {fileID: 6600292801777155311}
 --- !u!114 &8117622115944397552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33579,6 +33845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 8122813451424818227}
+  _renderer: {fileID: 7076500136699270296}
 --- !u!114 &8122813451424818227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33649,6 +33916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 8
   _animation: {fileID: 8144800759031910925}
+  _renderer: {fileID: 5315165201244652758}
 --- !u!114 &8144800759031910925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33930,6 +34198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 8367097454438673200}
+  _renderer: {fileID: 2137696444296049925}
 --- !u!114 &8367097454438673200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34031,6 +34300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 8392685481170211622}
+  _renderer: {fileID: 4295823119796694367}
 --- !u!114 &8392685481170211622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34525,6 +34795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 0
   _animation: {fileID: 8616325469638307950}
+  _renderer: {fileID: 7526852819408376989}
 --- !u!114 &8616325469638307950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34595,6 +34866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 5
   _animation: {fileID: 8624955375405443711}
+  _renderer: {fileID: 1067685047884063347}
 --- !u!114 &8624955375405443711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34681,6 +34953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 8674892804549110716}
+  _renderer: {fileID: 8543534697380869575}
 --- !u!114 &8674892804549110716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34888,6 +35161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 8827464646684080912}
+  _renderer: {fileID: 9022313019351938789}
 --- !u!114 &8827464646684080912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35137,6 +35411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 3
   _animation: {fileID: 8908218142410958149}
+  _renderer: {fileID: 5124865267612761974}
 --- !u!114 &8908218142410958149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35207,6 +35482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 9
   _animation: {fileID: 8926242462153226066}
+  _renderer: {fileID: 238100490071982265}
 --- !u!114 &8926242462153226066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35456,6 +35732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 6
   _animation: {fileID: 9207955409923022685}
+  _renderer: {fileID: 6946656372850619237}
 --- !u!114 &9207955409923022685
 MonoBehaviour:
   m_ObjectHideFlags: 0

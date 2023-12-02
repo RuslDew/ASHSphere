@@ -12,10 +12,13 @@ public class GroupsController : MonoBehaviour
 
     [SerializeField] private RotateAnglePanel _rotateAngleVisual;
 
+    public event Action OnAddActionToHistory;
+
 
     private void Awake()
     {
         _autoConstructor.Init(_groups);
+        _autoConstructor.OnAddActionToHistory += () => OnAddActionToHistory?.Invoke();
 
         foreach (PiecesGroup group in _groups)
         {
@@ -94,5 +97,10 @@ public class GroupsController : MonoBehaviour
     private List<HistoryAction> LoadActionsFromString(string history)
     {
         return _autoConstructor.LoadActionsFromString(history);
+    }
+
+    public HistoryAction GetLastHistoryAction()
+    {
+        return _autoConstructor.GetLastHistoryAction();
     }
 }

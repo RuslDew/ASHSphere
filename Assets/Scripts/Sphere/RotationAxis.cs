@@ -39,17 +39,15 @@ public class RotationAxis : MonoBehaviour
         //    });
 
         SetRotation(rotatingObjects, zAngle);
-        onComplete?.Invoke(CurrentZAngle);
+        onComplete?.Invoke(zAngle);
         _rotatingPart.up = _staticPart.up;
     }
 
     private void SetRotation(List<Transform> rotatingObjects, float zAngle)
     {
-        //float diff = Mathf.Round(zAngle - CurrentZAngle);
+        float diff = zAngle - CurrentZAngle;
 
-        float rotation = zAngle;
-
-        Debug.LogError(rotation);
+        float rotation = diff;
 
         _rotatingPart.Rotate(Axis, rotation, Space.World);
 
@@ -76,7 +74,7 @@ public class RotationAxis : MonoBehaviour
         float signedAngle = Vector3.SignedAngle(originVector, currentVector, Axis);
         //float angle360 = signedAngle < 0f ? signedAngle + 360f : signedAngle;
 
-        return Mathf.Round(signedAngle);
+        return signedAngle;
     }
 
 #if UNITY_EDITOR
