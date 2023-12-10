@@ -20,9 +20,6 @@ public class EdgeRotation : MonoBehaviour
     private bool _isCurrentlyRotating = false;
     private bool _isStoppingRotation = false;
 
-    private SpherePiece _prevPiece;
-    private List<PiecesGroup> _prevPieceTriedGroups = new List<PiecesGroup>();
-
     [Space]
 
     [SerializeField] private float _clearTriedGroupsDelay = 2f;
@@ -55,17 +52,7 @@ public class EdgeRotation : MonoBehaviour
 
                 List<PiecesGroup> pieceGroups = _groupsController.GetGroupsThatContainingPiece(piece);
 
-                if (_currentRotatingGroup != null)
-                {
-                    if (_prevPiece == piece && _prevPieceTriedGroups.Count < pieceGroups.Count - 1)
-                        _prevPieceTriedGroups.Add(_currentRotatingGroup);
-                    else
-                        _prevPieceTriedGroups.Clear();
-                }
-
-                _prevPiece = piece;
-
-                _currentRotatingGroup = GetCorrectGroup(pieceGroups, _prevPieceTriedGroups, pointerDirection, pointerDirectionPerpendicular);
+                _currentRotatingGroup = GetCorrectGroup(pieceGroups, pointerDirection, pointerDirectionPerpendicular);
 
                 if (_currentRotatingGroup != null)
                 {
@@ -77,42 +64,41 @@ public class EdgeRotation : MonoBehaviour
         }
     }
 
-    private PiecesGroup GetCorrectGroup(List<PiecesGroup> avaibleGroups, List<PiecesGroup> alreadyTriedGroups, Vector3 pointerDirection, Vector3 pointerDirectionPerpendicular)
+    private PiecesGroup GetCorrectGroup(List<PiecesGroup> avaibleGroups, Vector3 pointerDirection, Vector3 pointerDirectionPerpendicular)
     {
         if (avaibleGroups.Count == 0)
             return null;
 
         Comparison<PiecesGroup> comparison = (a, b) =>
         {
-            float angleBetweenAxisAndDirA = Vector3.Angle(pointerDirection, a.Axis);
-            float angleBetweenAxisAndPerpendicularA = Vector3.Angle(pointerDirectionPerpendicular, a.Axis);
+            float aScalarToDir = a.Axis.ScalarProduct(pointerDirection);
+            float bScalarToDir = b.Axis.ScalarProduct(pointerDirection);
 
-            float angleBetweenAxisAndDirB = Vector3.Angle(pointerDirection, b.Axis);
-            float angleBetweenAxisAndPerpendicularB = Vector3.Angle(pointerDirectionPerpendicular, b.Axis);
+            float aScalarToDirPerp = a.Axis.ScalarProduct(pointerDirectionPerpendicular);
+            float bScalarToDirPerp = b.Axis.ScalarProduct(pointerDirectionPerpendicular);
 
-            float diffTo90ForPointerDirA = 90f - angleBetweenAxisAndDirA; 
-            float diffTo90ForDirPerpendicularA = 90f - angleBetweenAxisAndPerpendicularA; 
-            
-            float diffTo90ForPointerDirB = 90f - angleBetweenAxisAndDirB; 
-            float diffTo90ForDirPerpendicularB = 90f - angleBetweenAxisAndPerpendicularB; 
+            float aScalar = aScalarToDir + aScalarToDirPerp;
+            float bScalar = bScalarToDir + bScalarToDirPerp;
 
-            if (diffTo90ForPointerDirA < diffTo90ForPointerDirB && diffTo90ForDirPerpendicularA < diffTo90ForDirPerpendicularB)
+            if (bScalar < aScalar)
+            {
+                return 1;
+            }
+            else if (bScalar > aScalar)
             {
                 return -1;
             }
             else
             {
-                return 1;
+                return 0;
             }
         };
 
         avaibleGroups.Sort(comparison);
 
-        List<PiecesGroup> notTriedGroups = avaibleGroups.Where(group => !alreadyTriedGroups.Contains(group)).ToList();
-
-        if (notTriedGroups != null && notTriedGroups.Count > 0)
+        if (avaibleGroups != null && avaibleGroups.Count > 0)
         {
-            PiecesGroup correctGroup = notTriedGroups[0];
+            PiecesGroup correctGroup = avaibleGroups[0];
             return correctGroup;
         }
 
@@ -129,20 +115,8 @@ public class EdgeRotation : MonoBehaviour
             {
                 SetCurrentlyRotating(false);
                 CompleteStoppingRotation();
-                ClearTriedGroupsListWithDelay();
             }, _rotationSnapSpeed, _rotationSnapEase);
         }
-    }
-
-    private void ClearTriedGroupsListWithDelay()
-    {
-        if (_clearTriedGroupsSequence != null)
-            _clearTriedGroupsSequence.Kill();
-
-        _clearTriedGroupsSequence = DOTween.Sequence().AppendCallback(() =>
-        {
-            _prevPieceTriedGroups.Clear();
-        }).SetDelay(_clearTriedGroupsDelay);
     }
 
     private void CompleteStoppingRotation()

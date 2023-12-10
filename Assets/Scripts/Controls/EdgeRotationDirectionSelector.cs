@@ -17,6 +17,8 @@ public class EdgeRotationDirectionSelector : MonoBehaviour
 
     private bool _clickWasOnSphere = false;
 
+    [SerializeField] private Transform _pointingVectorAxis;
+
 
     private void Awake()
     {
@@ -61,7 +63,9 @@ public class EdgeRotationDirectionSelector : MonoBehaviour
         _selectedRotationDirection = _sampledSpeedsSum / (float)_samplesCount;
         _isDirectionSelected = true;
 
-        Vector3 perpendicularToDirection = _selectedRotationDirection.GetPerpendicular(Camera.main.transform.forward);
+        _pointingVectorAxis.up = _selectedRotationDirection;
+
+        Vector3 perpendicularToDirection = _pointingVectorAxis.forward;
 
         OnSelectDirection?.Invoke(_selectedRotationDirection, perpendicularToDirection);
     }
@@ -72,9 +76,8 @@ public class EdgeRotationDirectionSelector : MonoBehaviour
         Gizmos.color = Color.red;
 
         Vector3 from = Camera.main.transform.position;
-        Vector3 to = from + (_selectedRotationDirection * 100f);
-        Gizmos.DrawLine(from, to);
-        Gizmos.DrawLine(from, to.GetPerpendicular(Camera.main.transform.forward));
+        Gizmos.DrawLine(from, from + _pointingVectorAxis.up);
+        Gizmos.DrawLine(from, from - _pointingVectorAxis.right);
     }
 #endif
 

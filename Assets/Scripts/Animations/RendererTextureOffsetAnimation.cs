@@ -12,6 +12,8 @@ public class RendererTextureOffsetAnimation : MonoBehaviour
 
     private Vector4 _texture_ST;
 
+    private float _multiplier = 1f;
+
 
     private void Awake()
     {
@@ -31,10 +33,16 @@ public class RendererTextureOffsetAnimation : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _texture_ST.x = _tilling.x * _multiplier;
         _texture_ST.z += _animationSpeed.x;
         _texture_ST.w += _animationSpeed.y;
 
         _propertyBlock.SetVector(_tillingPropertyName, _texture_ST);
         _renderer.SetPropertyBlock(_propertyBlock);
+    }
+
+    public void SetMultiplier(float multiplier)
+    {
+        _multiplier = multiplier;
     }
 }

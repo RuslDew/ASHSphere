@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class GameController : MonoBehaviour
@@ -16,6 +17,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private SaveManager _saveManager;
 
     private Session _currentSession;
+
+    [Space]
+
+    [SerializeField] private UnityEvent _onCompleteGameStart;
+    [SerializeField] private UnityEvent _onCompleteGameStop;
 
 
     private void Awake()
@@ -40,7 +46,7 @@ public class GameController : MonoBehaviour
             _groupsController.Mix(() =>
             {
                 _groupsController.AllowActions(true);
-                _gameScreen.Show();
+                _gameScreen.Show(() => _onCompleteGameStart?.Invoke());
                 _timer.StartTimer(_currentSession);
             });
         }
@@ -60,7 +66,7 @@ public class GameController : MonoBehaviour
             _focusAnim.Focus(() =>
             {
                 _groupsController.AllowActions(true);
-                _gameScreen.Show();
+                _gameScreen.Show(() => _onCompleteGameStart?.Invoke());
                 _timer.StartTimer(_currentSession);
             });
         }
@@ -81,7 +87,7 @@ public class GameController : MonoBehaviour
             _groupsController.LoadHistory(_currentSession.History, () =>
             {
                 _groupsController.AllowActions(true);
-                _gameScreen.Show();
+                _gameScreen.Show(() => _onCompleteGameStart?.Invoke());
                 _timer.StartTimer(_currentSession);
             });
         }
@@ -100,7 +106,7 @@ public class GameController : MonoBehaviour
 
             SaveCurrentSession();
 
-            _groupsController.Assemble(() => _menuScreen.Show());
+            _groupsController.Assemble(() => _menuScreen.Show(() => _onCompleteGameStop?.Invoke()));
 
             _timer.StopTimer();
         }

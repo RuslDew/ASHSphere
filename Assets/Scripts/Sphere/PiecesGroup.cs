@@ -92,7 +92,6 @@ public class PiecesGroup : MonoBehaviour
 
     public void EnableHighlight()
     {
-        _highlightedPieces.Clear();
         _highlightedPieces.AddRange(Pieces.Where(piece => !piece.IsBlinking));
 
         foreach (SpherePiece piece in _highlightedPieces)
@@ -103,6 +102,8 @@ public class PiecesGroup : MonoBehaviour
     {
         foreach (SpherePiece piece in _highlightedPieces)
             piece.StopBlinking();
+
+        _highlightedPieces.Clear();
     }
 
 

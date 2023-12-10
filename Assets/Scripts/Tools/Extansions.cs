@@ -2,14 +2,9 @@ using UnityEngine;
 
 public static class Extansions
 {
-    public static Vector3 GetPerpendicular(this Vector3 original, Vector3 nonCollinearVector)
+    public static float ScalarProduct(this Vector3 vector, Vector3 otherVector)
     {
-        Vector3 a = original;
-        Vector3 b = nonCollinearVector;
-
-        Vector3 vectorProduct = new Vector3(a.z * b.y - a.y * b.z, a.x * b.z - a.z - b.x, a.y * b.x - a.x * b.y);
-
-        return vectorProduct;
+        return Mathf.Abs((vector.x * otherVector.x) + (vector.y * otherVector.y) + (vector.z * otherVector.z));
     }
 
     public static float GetSign(this float number)

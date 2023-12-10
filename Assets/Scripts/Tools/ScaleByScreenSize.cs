@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class ScaleByScreenSize : MonoBehaviour
 {
@@ -9,8 +8,17 @@ public class ScaleByScreenSize : MonoBehaviour
 
     [SerializeField] private float _multiplier = 1f;
 
+    public float ScaleMultiplier { get; private set; }
+
 
     private void UpdateScale()
+    {
+        ScaleMultiplier = GetScaleMultiplier();
+
+        transform.localScale = _originalScale * ScaleMultiplier;
+    }
+
+    private float GetScaleMultiplier()
     {
         Vector2 currentScreenSize = new Vector2(Screen.width, Screen.height);
 
@@ -21,7 +29,7 @@ public class ScaleByScreenSize : MonoBehaviour
         float scaleCorrection = _multiplier * (1f - scale);
         float correctedScale = scale + scaleCorrection;
 
-        transform.localScale = _originalScale * correctedScale;
+        return correctedScale;
     }
 
 #if UNITY_EDITOR
