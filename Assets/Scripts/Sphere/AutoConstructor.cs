@@ -69,7 +69,7 @@ public class AutoConstructor
 
         PiecesGroup group = _groups[groupIndex];
 
-        int singleAngleStep = 72;
+        int singleAngleStep = Mathf.RoundToInt(group.MinAngleStep);
         int maxPositionsCount = 2;
         int randomPosition = UnityEngine.Random.Range(-maxPositionsCount, maxPositionsCount + 1);
         float randomAngle = Mathf.Round((float)(randomPosition * singleAngleStep));

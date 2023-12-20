@@ -36,6 +36,9 @@ public class PiecesGroup : MonoBehaviour
 
     private List<SpherePiece> _highlightedPieces = new List<SpherePiece>();
 
+    [SerializeField] private float _minAngleStep = 72f;
+    public float MinAngleStep => _minAngleStep;
+
 
     private void Awake()
     {
@@ -83,9 +86,8 @@ public class PiecesGroup : MonoBehaviour
 
         DisableHighlight();
 
-        float singleRotationAngle = 72f;
-        float rotationPeriods = Mathf.Round(CurrentZAngle / singleRotationAngle);
-        float snappingZAngle = singleRotationAngle * rotationPeriods;
+        float rotationPeriods = Mathf.Round(CurrentZAngle / _minAngleStep);
+        float snappingZAngle = _minAngleStep * rotationPeriods;
 
         SetRotation(snappingZAngle, onCompleteRotation, snapSpeed, snapEase);
     }
