@@ -53,7 +53,7 @@ public class PiecesGroup : MonoBehaviour
         {
             SpherePiece piece = ray.GetTargetPiece();
 
-            if (piece != null)
+            if (piece != null && !Pieces.Contains(piece))
             {
                 Pieces.Add(piece);
             }
