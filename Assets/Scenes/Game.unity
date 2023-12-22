@@ -323,8 +323,8 @@ MonoBehaviour:
   _groupId: 36
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &9841991
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,8 +995,8 @@ MonoBehaviour:
   _groupId: 29
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &40128649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,8 +1110,8 @@ MonoBehaviour:
   _groupId: 22
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &46382867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,8 +3513,8 @@ MonoBehaviour:
   _groupId: 19
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &169804953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,8 +3951,8 @@ MonoBehaviour:
   _groupId: 41
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &205553921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,8 +4155,8 @@ MonoBehaviour:
   _groupId: 26
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &213554133
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,7 +5758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &317047426
 Transform:
   m_ObjectHideFlags: 0
@@ -6837,8 +6837,8 @@ MonoBehaviour:
   _groupId: 31
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &401268427
 GameObject:
   m_ObjectHideFlags: 0
@@ -7808,8 +7808,8 @@ MonoBehaviour:
   _groupId: 42
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &473014948
 GameObject:
   m_ObjectHideFlags: 0
@@ -8460,8 +8460,8 @@ MonoBehaviour:
   _groupId: 35
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &547818303
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,8 +9805,8 @@ MonoBehaviour:
   _groupId: 34
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &682039498
 GameObject:
   m_ObjectHideFlags: 0
@@ -10890,8 +10890,8 @@ MonoBehaviour:
   _groupId: 18
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &784095716
 GameObject:
   m_ObjectHideFlags: 0
@@ -11750,8 +11750,8 @@ MonoBehaviour:
   _groupId: 30
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &885896468
 GameObject:
   m_ObjectHideFlags: 0
@@ -11897,8 +11897,8 @@ MonoBehaviour:
   _groupId: 33
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &899339761
 GameObject:
   m_ObjectHideFlags: 0
@@ -12733,8 +12733,8 @@ MonoBehaviour:
   _groupId: 44
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &962254601
 GameObject:
   m_ObjectHideFlags: 0
@@ -14783,8 +14783,8 @@ MonoBehaviour:
   _groupId: 37
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1096165768
 GameObject:
   m_ObjectHideFlags: 0
@@ -15179,8 +15179,8 @@ MonoBehaviour:
   _groupId: 40
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1133092710
 GameObject:
   m_ObjectHideFlags: 0
@@ -15569,8 +15569,8 @@ MonoBehaviour:
   _groupId: 28
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1175732200
 GameObject:
   m_ObjectHideFlags: 0
@@ -18608,8 +18608,8 @@ MonoBehaviour:
   _groupId: 38
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1326077737
 GameObject:
   m_ObjectHideFlags: 0
@@ -18723,8 +18723,8 @@ MonoBehaviour:
   _groupId: 23
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1330384035
 GameObject:
   m_ObjectHideFlags: 0
@@ -18870,8 +18870,8 @@ MonoBehaviour:
   _groupId: 39
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1339418291
 GameObject:
   m_ObjectHideFlags: 0
@@ -19724,8 +19724,8 @@ MonoBehaviour:
   _groupId: 45
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1405738903
 GameObject:
   m_ObjectHideFlags: 0
@@ -20375,8 +20375,8 @@ MonoBehaviour:
   _groupId: 24
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1453467394
 GameObject:
   m_ObjectHideFlags: 0
@@ -21669,8 +21669,8 @@ MonoBehaviour:
   _groupId: 32
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1559784480
 GameObject:
   m_ObjectHideFlags: 0
@@ -24467,8 +24467,8 @@ MonoBehaviour:
   _groupId: 25
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1758386813
 GameObject:
   m_ObjectHideFlags: 0
@@ -25145,8 +25145,8 @@ MonoBehaviour:
   _groupId: 20
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1827605599
 GameObject:
   m_ObjectHideFlags: 0
@@ -26248,8 +26248,8 @@ MonoBehaviour:
   _groupId: 46
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: -1
+  _minAngleStep: 180
 --- !u!1 &1930434977
 GameObject:
   m_ObjectHideFlags: 0
@@ -26391,8 +26391,8 @@ MonoBehaviour:
   _groupId: 21
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1939073097
 GameObject:
   m_ObjectHideFlags: 0
@@ -26475,8 +26475,8 @@ MonoBehaviour:
   _groupId: 47
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1944877108
 GameObject:
   m_ObjectHideFlags: 0
@@ -26559,8 +26559,8 @@ MonoBehaviour:
   _groupId: 27
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &1959893093
 GameObject:
   m_ObjectHideFlags: 0
@@ -27222,8 +27222,8 @@ MonoBehaviour:
   _groupId: 43
   _highlightPiecesColor: {r: 1, g: 0.49803922, b: 0.49803922, a: 1}
   _blinkingFrequence: 0.5
-  _offsetForHint: 0
-  _minAngleStep: 90
+  _offsetForHint: 1
+  _minAngleStep: 180
 --- !u!1 &2012646341
 GameObject:
   m_ObjectHideFlags: 0
