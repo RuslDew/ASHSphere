@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using com.cyborgAssets.inspectorButtonPro;
 
 public class RotationAxis : MonoBehaviour
 {
