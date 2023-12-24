@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using com.cyborgAssets.inspectorButtonPro;
 
 public class RotationAxis : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class RotationAxis : MonoBehaviour
         return _staticPart.forward;
     }
 
-    public void SetRotation(List<Transform> rotatingObjects, float zAngle, Action<float> onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutBounce, bool speedBased = true)
+    public void SetRotation(List<SpherePiece> rotatingObjects, float zAngle, Action<float> onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutBounce, bool speedBased = true)
     {
         if (_setRotationTweener != null)
             _setRotationTweener.Kill();
@@ -44,7 +43,7 @@ public class RotationAxis : MonoBehaviour
         _rotatingPart.up = _staticPart.up;
     }
 
-    private void SetRotation(List<Transform> rotatingObjects, float zAngle)
+    private void SetRotation(List<SpherePiece> rotatingObjects, float zAngle)
     {
         float diff = zAngle - CurrentZAngle;
 
@@ -52,8 +51,8 @@ public class RotationAxis : MonoBehaviour
 
         _rotatingPart.Rotate(Axis, rotation, Space.World);
 
-        foreach (Transform rotatigObject in rotatingObjects)
-            rotatigObject.Rotate(Axis, rotation, Space.World);
+        foreach (SpherePiece rotatigObject in rotatingObjects)
+            rotatigObject.transform.Rotate(Axis, rotation, Space.World);
     }
 
     public void Rotate(List<Transform> rotatingObjects, float angle)

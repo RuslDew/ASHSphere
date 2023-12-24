@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class GroupingRay : MonoBehaviour
 {
-    public SpherePiece GetTargetPiece()
+    public SpherePiece TargetPiece { get; private set; }
+
+    public void UpdateTargetPiece()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
@@ -17,6 +19,11 @@ public class GroupingRay : MonoBehaviour
             Debug.LogError("Target not found");
         }
 
-        return piece;
+        TargetPiece = piece;
+    }
+
+    public void SetColor(Color color)
+    {
+        gameObject.GetComponent<AxisDrawer>().SetColor(color);
     }
 }

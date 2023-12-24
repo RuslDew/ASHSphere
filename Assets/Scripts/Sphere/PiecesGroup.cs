@@ -37,13 +37,10 @@ public class PiecesGroup : MonoBehaviour
     private List<SpherePiece> _highlightedPieces = new List<SpherePiece>();
 
     [SerializeField] private float _minAngleStep = 72f;
+    [SerializeField] private int _maxStepsCountForRandom = 1;
     public float MinAngleStep => _minAngleStep;
+    public int MaxStepsCountForRandom => _maxStepsCountForRandom;
 
-
-    private void Awake()
-    {
-        UpdatePieces();
-    }
 
     public void UpdatePieces()
     {
@@ -51,9 +48,9 @@ public class PiecesGroup : MonoBehaviour
         
         foreach (GroupingRay ray in _rays)
         {
-            SpherePiece piece = ray.GetTargetPiece();
+            SpherePiece piece = ray.TargetPiece;
 
-            if (piece != null && !Pieces.Contains(piece))
+            if (piece != null)
             {
                 Pieces.Add(piece);
             }
@@ -111,9 +108,7 @@ public class PiecesGroup : MonoBehaviour
 
     public void SetRotation(float zAngle, Action onComplete, float snapSpeed = 30f, Ease snapEase = Ease.OutElastic, bool reparentPieces = false, bool speedBased = true, bool writeToHistory = true)
     {
-        List<Transform> rotatingObjects = Pieces.Select(piece => piece.transform).ToList();
-
-        _axis.SetRotation(rotatingObjects, zAngle, (angleChange) =>
+        _axis.SetRotation(Pieces, zAngle, (angleChange) =>
         {
             StartCoroutine(WaitForFixedUpdateRoutine(() =>
             {

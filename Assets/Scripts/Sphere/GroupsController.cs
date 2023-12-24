@@ -14,9 +14,13 @@ public class GroupsController : MonoBehaviour
 
     public event Action OnAddActionToHistory;
 
+    [SerializeField] private List<GroupingRay> _rays = new List<GroupingRay>();
+
 
     private void Awake()
     {
+        UpdateGroups();
+
         _autoConstructor.Init(_groups);
         _autoConstructor.OnAddActionToHistory += () => OnAddActionToHistory?.Invoke();
 
@@ -39,6 +43,9 @@ public class GroupsController : MonoBehaviour
 
     private void UpdateGroups()
     {
+        foreach (GroupingRay ray in _rays)
+            ray.UpdateTargetPiece();
+
         foreach (PiecesGroup group in _groups)
             group.UpdatePieces();
     }
