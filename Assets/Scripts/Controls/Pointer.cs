@@ -29,10 +29,17 @@ public class Pointer : MonoBehaviour
 
     private bool IsPointerDown()
     {
+        if (Input.touchCount > 0)
+            return Input.touches[0].phase == TouchPhase.Began;
+
         return Input.GetMouseButtonDown(0);
     }
+
     private bool IsPointerUp()
     {
+        if (Input.touchCount > 0)
+            return Input.touches[0].phase == TouchPhase.Ended;
+
         return Input.GetMouseButtonUp(0);
     }
     
@@ -81,6 +88,9 @@ public class Pointer : MonoBehaviour
 
     public Vector2 GetCurrentPointerPos()
     {
+        if (Input.touchCount > 0)
+            return Input.touches[0].position;
+
         return Input.mousePosition;
     }
 

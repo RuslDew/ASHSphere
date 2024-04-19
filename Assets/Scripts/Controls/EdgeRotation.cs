@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Linq;
 using DG.Tweening;
 
 public class EdgeRotation : MonoBehaviour
