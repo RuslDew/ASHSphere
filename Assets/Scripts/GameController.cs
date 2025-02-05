@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Runtime.InteropServices;
 
 public class GameController : MonoBehaviour
 {
@@ -23,9 +24,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private UnityEvent _onCompleteGameStart;
     [SerializeField] private UnityEvent _onCompleteGameStop;
 
+    [DllImport("__Internal")]
+    private static extern void UnityPluginRequestJsVKWebAppInit();
 
     private void Awake()
     {
+        UnityPluginRequestJsVKWebAppInit();
+
         _groupsController.AllowActions(false);
 
         _savesScreen.OnSelectSave += StartSavedGame;
